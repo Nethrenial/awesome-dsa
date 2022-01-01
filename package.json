@@ -1,6 +1,6 @@
 {
   "name": "awesome-dsa",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A 0 dependency library which provides classic data structures and algorithms (written in typescript) targeting browser environments.",
   "keywords": [
     "typescript",
