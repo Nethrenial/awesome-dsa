@@ -243,14 +243,14 @@ export class SinglyLinkedList<T> {
   }
 
   /**
-   * Remove the first node from the list and return its value
+   * delete the first node from the list and return its value
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
    * list.insertAtEnd(1);
    * list.insertAtEnd(2);
    * list.insertAtEnd(3);
-   * console.log(list.removeFromStart()); // 1
+   * console.log(list.deleteFromStart()); // 1
    * console.log(list.length); // 2
    * console.log(list.getList()); // [2, 3]
    * ```
@@ -258,7 +258,7 @@ export class SinglyLinkedList<T> {
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
-   * list.removeFromStart(); // throws an error
+   * list.deleteFromStart(); // throws an error
    * ```
    */
 
@@ -279,7 +279,7 @@ export class SinglyLinkedList<T> {
    * list.insertAtEnd(1);
    * list.insertAtEnd(2);
    * list.insertAtEnd(3);
-   * console.log(list.removeFromEnd()); // 3
+   * console.log(list.deleteFromEnd()); // 3
    * console.log(list.length); // 2
    * console.log(list.getList()); // [1, 2]
    * ```
@@ -287,7 +287,7 @@ export class SinglyLinkedList<T> {
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
-   * list.removeFromEnd(); // throws an error
+   * list.deleteFromEnd(); // throws an error
    * ```
    */
   public deleteFromEnd(): T {
@@ -323,7 +323,7 @@ export class SinglyLinkedList<T> {
    * list.insertAtEnd(1);
    * list.insertAtEnd(2);
    * list.insertAtEnd(3);
-   * console.log(list.removeAt(1)); // 2
+   * console.log(list.deleteAtIndex(1)); // 2
    * console.log(list.length); // 2
    * console.log(list.getList()); // [1, 3]
    * ```
@@ -331,7 +331,7 @@ export class SinglyLinkedList<T> {
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
-   * list.removeAt(1); // throws an error
+   * list.deleteAtIndex(1); // throws an error
    * ```
    */
   public deleteAtIndex(index: number): T {
@@ -366,7 +366,7 @@ export class SinglyLinkedList<T> {
    * list.insertAtEnd(2);
    * list.insertAtEnd(3);
    * list.insertBefore(2, 4);
-   * console.log(list.removeBefore(2)); // 1
+   * console.log(list.deleteBefore(2)); // 1
    * console.log(list.length); // 3
    * console.log(list.getList()); // [2, 4, 3]
    * ```
@@ -374,7 +374,7 @@ export class SinglyLinkedList<T> {
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
-   * list.removeBefore(1); // throws an error
+   * list.deleteBefore(1); // throws an error
    * ```
    */
   public deleteBefore(target: T): T {
@@ -417,7 +417,7 @@ export class SinglyLinkedList<T> {
    * list.insertAtEnd(2);
    * list.insertAtEnd(3);
    * list.insertAfter(2, 4);
-   * console.log(list.removeAfter(2)); // 3
+   * console.log(list.deleteAfter(2)); // 3
    * console.log(list.length); // 3
    * console.log(list.getList()); // [1, 2, 4]
    * ```
@@ -425,7 +425,7 @@ export class SinglyLinkedList<T> {
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
-   * list.removeAfter(1); // throws an error
+   * list.deleteAfter(1); // throws an error
    * ```
    */
   public deleteAfter(target: T): T {
