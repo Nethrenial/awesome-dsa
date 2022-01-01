@@ -1,12 +1,19 @@
 # awesome-dsa
 
 [Docs](https://nethrenial.github.io/awesome-dsa/modules.html) | Visit the complete documentation
+[![](https://data.jsdelivr.com/v1/package/npm/awesome-dsa/badge)](https://www.jsdelivr.com/package/npm/awesome-dsa)
 
 ## Download
 
 Lodash is released under the [MIT license](https://raw.githubusercontent.com/lodash/lodash/4.17.10-npm/LICENSE) & supports browser environments upwards of es6/es2015.
 
 ## Installation
+
+Using JSDelivr
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/awesome-dsa@0.0.4/dist/cjs/index.min.js"></script>
+```
 
 Using npm:
 
