@@ -1,0 +1,26 @@
+{
+  "name": "awesome-dsa",
+  "version": "0.0.1",
+  "description": "A library which provides classic data structures and algorithms (written in typescript) targeting browser environments.",
+  "source": "src/index.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Nethsara Sandeepa Elvitigala (Nethrenial)",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "watch": "parcel watch",
+    "build": "parcel build",
+    "test": "testyts",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@parcel/packager-ts": "^2.0.1",
+    "@parcel/transformer-typescript-types": "^2.0.1",
+    "parcel": "^2.0.1",
+    "testyts": "^1.5.0",
+    "typedoc": "^0.22.10",
+    "typescript": ">=3.0.0"
+  }
+}

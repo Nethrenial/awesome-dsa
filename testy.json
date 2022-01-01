@@ -1,0 +1,11 @@
+{
+    "include": [
+        "**/*.spec.ts"
+    ],
+    "reporters": {
+        "standard": {
+            "color": true
+        }
+    },
+    "timeout": 10000
+}
