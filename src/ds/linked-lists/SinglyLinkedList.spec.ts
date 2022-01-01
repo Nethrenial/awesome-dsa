@@ -183,21 +183,46 @@ export class SinglyLinkedListTestSuite {
     list.insertAtEnd(2);
     list.insertAtEnd(3);
     list.insertBefore(2, 4);
-    console.log(list.getList());
     expect.toBeEqual(list.deleteBefore(2), 4);
     expect.toBeEqual(list.length, 3);
     expect.arraysToBeEqual(list.getList(), [1, 2, 3]);
   }
 
+  // @Test()
+  // public deleteBeforeIncorrectlyTest() {
+  //   const list = new SinglyLinkedList<number>();
+  //   list.insertAtEnd(1);
+  //   list.insertAtEnd(2);
+  //   list.insertAtEnd(3);
+  //   expect.toThrow(() => list.deleteBefore(4));
+  //   expect.toThrow(() => list.deleteBefore(-1));
+  //   expect.toThrow(() => list.deleteBefore(5));
+  // }
+
   @Test()
-  public deleteBeforeIncorrectlyTest() {
+  public deleteValueCorrectlyTest() {
     const list = new SinglyLinkedList<number>();
     list.insertAtEnd(1);
     list.insertAtEnd(2);
     list.insertAtEnd(3);
-    expect.toThrow(() => list.deleteBefore(4));
-    expect.toThrow(() => list.deleteBefore(-1));
-    expect.toThrow(() => list.deleteBefore(5));
+    list.insertAtEnd(4);
+    list.insertAtEnd(5);
+    expect.toBeEqual(list.deleteValue(3), 3);
+    expect.toBeEqual(list.length, 4);
+    expect.arraysToBeEqual(list.getList(), [1, 2, 4, 5]);
+  }
+
+  @Test()
+  public deleteValueIncorrectlyTest() {
+    const list = new SinglyLinkedList<number>();
+    list.insertAtEnd(1);
+    list.insertAtEnd(2);
+    list.insertAtEnd(3);
+    list.insertAtEnd(4);
+    list.insertAtEnd(5);
+    expect.toThrow(() => list.deleteValue(6));
+    expect.toThrow(() => list.deleteValue(-1));
+    expect.toThrow(() => list.deleteValue(7));
   }
 
   @Test()

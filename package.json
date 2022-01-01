@@ -7,13 +7,20 @@
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "author": "Nethsara Sandeepa Elvitigala (Nethrenial)",
+  "homepage": "https://nethrenial.github.io/awesome-dsa/",
+  "readme": "https://github.com/Nethrenial/awesome-dsa.git#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nethrenial/awesome-dsa.git"
+  },
   "license": "MIT",
   "private": false,
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",
     "test": "testyts",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "build:docs": "typedoc"
   },
   "devDependencies": {
     "@parcel/packager-ts": "^2.0.1",
@@ -21,6 +28,10 @@
     "parcel": "^2.0.1",
     "testyts": "^1.5.0",
     "typedoc": "^0.22.10",
+    "typedoc-plugin-extras": "^2.2.3",
+    "typedoc-plugin-mdn-links": "^1.0.4",
+    "typedoc-plugin-missing-exports": "^0.22.6",
+    "typedoc-umlclass": "^0.6.0",
     "typescript": ">=3.0.0"
   }
 }

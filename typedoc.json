@@ -2,5 +2,17 @@
     "entryPoints": [
         "src/index.ts"
     ],
-    "out": "docs"
+    "out": "docs",
+    "excludeExternals": true,
+    "includeVersion": true,
+    "readme": "./README.md",
+    "customTitle": "Awesome DSA",
+    "customDescription": "Documentation for Awesome DSA. awesome-dsa is a collection of classic Data Structures and Algorithms written in TypeScript.It also can be used in vanilla JavaScript.",
+    "footerDate": true,
+    "footerTime": true,
+    "umlClassDiagram": {
+        "type": "detailed",
+        "location": "local",
+        "format": "svg"
+    }
 }
