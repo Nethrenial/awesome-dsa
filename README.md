@@ -4,7 +4,7 @@
 
 ## Download
 
-Lodash is released under the [MIT license](https://raw.githubusercontent.com/lodash/lodash/4.17.10-npm/LICENSE) & supports browser environments upwards of es6/es2015.
+Awesome DSA is released under the [MIT license](https://raw.githubusercontent.com/lodash/lodash/4.17.10-npm/LICENSE) & supports browser environments upwards of es6/es2015.
 
 ## Installation
 
