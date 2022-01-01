@@ -1,71 +1,14 @@
-class SllNode<T> {
-  public value: T;
-  public next: SllNode<T> | null;
-
+import { LinkedList } from "./LinkedList";
+import { LLNode } from "./LLNode";
+class SLLNode<T> extends LLNode<T> {
   constructor(value: T) {
-    this.value = value;
-    this.next = null;
+    super(value);
   }
 }
 
-export class SinglyLinkedList<T> {
-  private _head: SllNode<T> | null;
-  private _tail: SllNode<T> | null;
-  private _length: number;
-
+export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
   constructor() {
-    this._head = null;
-    this._tail = null;
-    this._length = 0;
-  }
-
-  /**
-   * Returns the length of the list
-   * @example
-   * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
-   * console.log(list.length); // 3
-   * list.deleteFromEnd();
-   * console.log(list.length); // 2
-   * ```
-   */
-  get length(): number {
-    return this._length;
-  }
-
-  /**
-   * Returns the head's value of the list if the list is not empty or returns undefined
-   * @example
-   * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * console.log(list.head()); // 1
-   * list.deleteFromStart();
-   * console.log(list.head()); // 2
-   * ```
-   */
-  get head(): T | undefined {
-    return this._head?.value;
-  }
-
-  /**
-   * Returns the tail's value of the list if the list is not empty or returns undefined
-   * @example
-   * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * console.log(list.tail()); // 2
-   * list.deleteFromEnd();
-   * console.log(list.tail()); // 1
-   * ```
-   */
-  get tail(): T | undefined | null {
-    return this._tail?.value;
+    super();
   }
 
   /**
@@ -82,7 +25,7 @@ export class SinglyLinkedList<T> {
    * ```
    */
   public insertAtEnd(value: T): void {
-    const node = new SllNode(value);
+    const node = new SLLNode(value);
     if (this._head === null) {
       this._head = node;
       this._tail = node;
@@ -106,7 +49,7 @@ export class SinglyLinkedList<T> {
    * ```
    */
   public insertAtStart(value: T): void {
-    const node = new SllNode(value);
+    const node = new SLLNode(value);
     if (this._head === null) {
       this._head = node;
       this._tail = node;
@@ -147,7 +90,7 @@ export class SinglyLinkedList<T> {
     } else if (index === this._length) {
       this.insertAtEnd(value);
     } else {
-      const node = new SllNode(value);
+      const node = new SLLNode(value);
       let current = this._head;
       let previous = this._head;
       for (let i = 0; i < index; i++) {
@@ -196,7 +139,7 @@ export class SinglyLinkedList<T> {
     if (current.value !== target) {
       throw new Error("Target not found");
     }
-    const node = new SllNode(value);
+    const node = new SLLNode(value);
     node.next = current.next;
     current.next = node;
     this._length++;
@@ -236,7 +179,7 @@ export class SinglyLinkedList<T> {
     if (current.value !== target) {
       throw new Error("Target not found");
     }
-    const node = new SllNode(value);
+    const node = new SLLNode(value);
     previous.next = node;
     node.next = current;
     this._length++;
@@ -350,7 +293,7 @@ export class SinglyLinkedList<T> {
         if (current) current = current.next;
       }
       const value = current?.value;
-      (previous as SllNode<T>).next = (current as SllNode<T>).next;
+      (previous as SLLNode<T>).next = (current as SLLNode<T>).next;
       this._length--;
       return value as T;
     }
@@ -395,8 +338,8 @@ export class SinglyLinkedList<T> {
     let next = this._head.next;
     while (next?.value !== target && next?.next !== null) {
       previous = current;
-      current = next as SllNode<T>;
-      next = next?.next as SllNode<T> | null;
+      current = next as SLLNode<T>;
+      next = next?.next as SLLNode<T> | null;
     }
     if (next?.value !== target) {
       throw new Error("Target not found");
@@ -437,13 +380,13 @@ export class SinglyLinkedList<T> {
     }
     let current = this._head;
     while (current.value !== target && current.next?.next !== null) {
-      current = current.next as SllNode<T>;
+      current = current.next as SLLNode<T>;
     }
     if (current.value !== target) {
       throw new Error("Target not found");
     }
     const value = current.next?.value;
-    current.next = current.next?.next as SllNode<T>;
+    current.next = current.next?.next as SLLNode<T>;
     this._length--;
     return value as T;
   }
@@ -528,7 +471,7 @@ export class SinglyLinkedList<T> {
    */
   public getList(): T[] {
     let current = this._head;
-    let list: T[] = [];
+    const list: T[] = [];
     while (current !== null) {
       list.push(current.value);
       current = current.next;
@@ -550,7 +493,7 @@ export class SinglyLinkedList<T> {
    * console.log(arr); // [3, 6, 9, 12]
    * ```
    */
-  public traverseAndApply(callback: (value: SllNode<T>) => void): void {
+  public traverseAndApply(callback: (value: SLLNode<T>) => void): void {
     let current = this._head;
     while (current !== null) {
       callback(current);

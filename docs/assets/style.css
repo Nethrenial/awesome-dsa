@@ -1386,3 +1386,12 @@ input[type="checkbox"]:checked + .tsd-widget:before {
 img {
     max-width: 100%;
 }
+
+.tsd-hierarchy-diagram .diagram { max-width: 100%; display: block; margin: 0 auto; text-align: center; }
+.tsd-hierarchy-diagram h4 { margin: 10px -20px 5px -20px; border-top: 1px solid #eee; padding: 10px 20px; }
+.tsd-hierarchy-diagram .legend { display: flex; flex-flow: row wrap; align-items: center; font-size: 10px; }
+.tsd-hierarchy-diagram .legend div { width: 185px; display: flex; flex-flow: row nowrap; align-items: center; height: 34px; }
+.tsd-hierarchy-diagram .legend div span.dt { display: block; width: 55px; text-align: center; margin-right: 5px; }
+.tsd-hierarchy-diagram .legend div span.dd { display: block; }
+.tsd-hierarchy-diagram .legend div span.dt.underlined { text-decoration: underline; }
+.tsd-hierarchy-diagram .legend div span.dt.italic { font-style: italic; }`

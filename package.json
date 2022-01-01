@@ -45,7 +45,6 @@
     "typedoc-plugin-extras": "^2.2.3",
     "typedoc-plugin-mdn-links": "^1.0.4",
     "typedoc-plugin-missing-exports": "^0.22.6",
-    "typedoc-umlclass": "^0.6.0",
     "typescript": ">=3.0.0"
   },
   "files": [
