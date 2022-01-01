@@ -47,5 +47,8 @@
     "typedoc-plugin-missing-exports": "^0.22.6",
     "typedoc-umlclass": "^0.6.0",
     "typescript": ">=3.0.0"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }

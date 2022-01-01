@@ -25,14 +25,21 @@ Note: add `--save` if you are using npm < 5.0.0
 In script tag/non-es module environment:
 
 ```js
-var dsa = require('awesome-dsa');
-
+const dsa = require('awesome-dsa');
+const list = new dsa.SinglyLinkedList();
+//or
+const {SinglyLinkedList} = require('awesome-dsa');
+const list = new SinglyLinkedList()
 ```
 
 In ES modules (Typescript or Javascript):
 
 ```ts
 import dsa from 'awesome-dsa'
+const list = new dsa.SinglyLinkedList();
+//or
+import {SinglyLinkedList} from 'awesome-dsa';
+const list = new SinglyLinkedList()
 ```
 
 ## Why Awesome DSA?
