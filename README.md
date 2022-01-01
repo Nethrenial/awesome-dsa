@@ -1,6 +1,6 @@
 # awesome-dsa
 
-[Docs](./modules.html) | Visit the complete documentation
+[Docs](https://nethrenial.github.io/awesome-dsa/modules.html) | Visit the complete documentation
 
 ## Download
 
