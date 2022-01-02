@@ -1,5 +1,12 @@
 import { LinkedList } from "./abstracts/LinkedList";
 import { LLNode } from "./abstracts/LLNode";
+
+/**
+ * SLLNode, implements {@link LLNode}
+ * @extends LLNode
+ * @template T
+ * @param {T} value
+ */
 class SLLNode<T> implements LLNode<T> {
   public value: T;
   public next: SLLNode<T> | null;
@@ -9,6 +16,11 @@ class SLLNode<T> implements LLNode<T> {
   }
 }
 
+/**
+ * Singly Linked List, inherits from {@link LinkedList}
+ * @extends LinkedList
+ * @template T
+ */
 export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
   constructor() {
     super();

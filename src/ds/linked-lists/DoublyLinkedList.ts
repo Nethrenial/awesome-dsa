@@ -1,6 +1,12 @@
 import { LinkedList } from "./abstracts/LinkedList";
 import { LLNode } from "./abstracts/LLNode";
 
+/**
+ * DLLNode, implements {@link LLNode}
+ * @extends LLNode
+ * @template T
+ * @param {T} value
+ */
 class DLLNode<T> implements LLNode<T> {
   public value: T;
   public next: DLLNode<T> | null;
@@ -14,6 +20,8 @@ class DLLNode<T> implements LLNode<T> {
 
 /**
  * Doubly Linked List, inherits from {@link LinkedList}
+ * @extends LinkedList
+ * @template T
  */
 export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
   constructor() {
