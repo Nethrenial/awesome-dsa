@@ -8,7 +8,7 @@ export class SinglyLinkedListTestSuite {
   public initializationTest() {
     const list = new SinglyLinkedList<number>();
     expect.toBeEqual(list.length, 0);
-    expect.arraysToBeEqual(list.getList(), []);
+    expect.arraysToBeEqual(list.toArray(), []);
   }
 
   @Test()
@@ -18,7 +18,7 @@ export class SinglyLinkedListTestSuite {
     list.insertAtEnd(3);
     list.insertAtEnd(4);
     expect.toBeEqual(list.length, 3);
-    expect.arraysToBeEqual(list.getList(), [2, 3, 4]);
+    expect.arraysToBeEqual(list.toArray(), [2, 3, 4]);
   }
 
   @Test()
@@ -28,7 +28,7 @@ export class SinglyLinkedListTestSuite {
     list.insertAtStart(2);
     list.insertAtStart(3);
     expect.toBeEqual(list.length, 3);
-    expect.arraysToBeEqual(list.getList(), [3, 2, 1]);
+    expect.arraysToBeEqual(list.toArray(), [3, 2, 1]);
   }
 
   @Test()
@@ -36,7 +36,7 @@ export class SinglyLinkedListTestSuite {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     list.insertAtIndex(1, 4);
     expect.toBeEqual(list.length, 4);
-    expect.arraysToBeEqual(list.getList(), [1, 4, 2, 3]);
+    expect.arraysToBeEqual(list.toArray(), [1, 4, 2, 3]);
   }
 
   @Test()
@@ -52,7 +52,7 @@ export class SinglyLinkedListTestSuite {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     list.insertAfter(2, 4);
     expect.toBeEqual(list.length, 4);
-    expect.arraysToBeEqual(list.getList(), [1, 2, 4, 3]);
+    expect.arraysToBeEqual(list.toArray(), [1, 2, 4, 3]);
   }
 
   @Test()
@@ -68,7 +68,7 @@ export class SinglyLinkedListTestSuite {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     list.insertBefore(2, 4);
     expect.toBeEqual(list.length, 4);
-    expect.arraysToBeEqual(list.getList(), [1, 4, 2, 3]);
+    expect.arraysToBeEqual(list.toArray(), [1, 4, 2, 3]);
   }
 
   @Test()
@@ -84,7 +84,7 @@ export class SinglyLinkedListTestSuite {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     expect.toBeEqual(list.deleteFromStart(), 1);
     expect.toBeEqual(list.length, 2);
-    expect.arraysToBeEqual(list.getList(), [2, 3]);
+    expect.arraysToBeEqual(list.toArray(), [2, 3]);
   }
 
   @Test()
@@ -98,7 +98,7 @@ export class SinglyLinkedListTestSuite {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     expect.toBeEqual(list.deleteFromEnd(), 3);
     expect.toBeEqual(list.length, 2);
-    expect.arraysToBeEqual(list.getList(), [1, 2]);
+    expect.arraysToBeEqual(list.toArray(), [1, 2]);
   }
 
   @Test()
@@ -112,7 +112,7 @@ export class SinglyLinkedListTestSuite {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     expect.toBeEqual(list.deleteAtIndex(1), 2);
     expect.toBeEqual(list.length, 2);
-    expect.arraysToBeEqual(list.getList(), [1, 3]);
+    expect.arraysToBeEqual(list.toArray(), [1, 3]);
   }
 
   @Test()
@@ -129,7 +129,7 @@ export class SinglyLinkedListTestSuite {
     list.insertAfter(2, 4);
     expect.toBeEqual(list.deleteAfter(2), 4);
     expect.toBeEqual(list.length, 3);
-    expect.arraysToBeEqual(list.getList(), [1, 2, 3]);
+    expect.arraysToBeEqual(list.toArray(), [1, 2, 3]);
   }
 
   @Test()
@@ -146,7 +146,7 @@ export class SinglyLinkedListTestSuite {
     list.insertBefore(2, 4);
     expect.toBeEqual(list.deleteBefore(2), 4);
     expect.toBeEqual(list.length, 3);
-    expect.arraysToBeEqual(list.getList(), [1, 2, 3]);
+    expect.arraysToBeEqual(list.toArray(), [1, 2, 3]);
   }
 
   @Test()
@@ -164,7 +164,7 @@ export class SinglyLinkedListTestSuite {
     list.insertAtEnd(5);
     expect.toBeEqual(list.deleteValue(3), 3);
     expect.toBeEqual(list.length, 4);
-    expect.arraysToBeEqual(list.getList(), [1, 2, 4, 5]);
+    expect.arraysToBeEqual(list.toArray(), [1, 2, 4, 5]);
   }
 
   @Test()
@@ -184,9 +184,9 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public getListTest() {
+  public toArrayTest() {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
-    expect.arraysToBeEqual(list.getList(), [1, 2, 3]);
+    expect.arraysToBeEqual(list.toArray(), [1, 2, 3]);
   }
 
   @Test()
