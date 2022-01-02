@@ -35,9 +35,9 @@ export abstract class LinkedList<T, U extends LLNode<T>> {
    * const list = new SinglyLinkedList<number>();
    * list.insertAtEnd(1);
    * list.insertAtEnd(2);
-   * console.log(list.head()); // 1
+   * console.log(list.head); // 1
    * list.deleteFromStart();
-   * console.log(list.head()); // 2
+   * console.log(list.head); // 2
    * ```
    */
   get head(): T | undefined {
@@ -51,26 +51,28 @@ export abstract class LinkedList<T, U extends LLNode<T>> {
    * const list = new SinglyLinkedList<number>();
    * list.insertAtEnd(1);
    * list.insertAtEnd(2);
-   * console.log(list.tail()); // 2
+   * console.log(list.tail); // 2
    * list.deleteFromEnd();
-   * console.log(list.tail()); // 1
+   * console.log(list.tail); // 1
    * ```
    */
   get tail(): T | undefined | null {
     return this._tail?.value;
   }
 
-  /**
-   * Insert the given value at the end of the list
-   * @param value Value to be inserted at the end of the list, this should be of type {T}
-   * @example
-   * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
-   * console.log(list.length); // 3
-   * console.log(list.getList()); // [1, 2, 3]
-   * ```
-   */
+  public abstract insertAtEnd(value: T): void;
+  public abstract insertAtStart(value: T): void;
+  public abstract insertAtIndex(index: number, value: T): void;
+  public abstract insertAfter(target: T, value: T): void;
+  public abstract insertBefore(target: T, value: T): void;
+  public abstract deleteFromStart(): T;
+  public abstract deleteFromEnd(): T;
+  public abstract deleteAtIndex(index: number): T;
+  public abstract deleteBefore(target: T): T;
+  public abstract deleteAfter(target: T): T;
+  public abstract deleteValue(target: T): T;
+  public abstract reverse(): void;
+  public abstract display(): void;
+  public abstract getList(): T[];
+  public abstract forEachApply(callback: (value: U) => void): void;
 }

@@ -1,8 +1,11 @@
-import { LinkedList } from "./LinkedList";
-import { LLNode } from "./LLNode";
-class SLLNode<T> extends LLNode<T> {
+import { LinkedList } from "./abstracts/LinkedList";
+import { LLNode } from "./abstracts/LLNode";
+class SLLNode<T> implements LLNode<T> {
+  public value: T;
+  public next: SLLNode<T> | null;
   constructor(value: T) {
-    super(value);
+    this.value = value;
+    this.next = null;
   }
 }
 
@@ -12,16 +15,30 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
   }
 
   /**
-   * Insert the given value at the end of the list
-   * @param value Value to be inserted at the end of the list, this should be of type {T}
+   * Returns a instance of {@link SinglyLinkedList} with the values in the given list
+   * @param arr array of values to create the list from
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
-   * console.log(list.length); // 3
-   * console.log(list.getList()); // [1, 2, 3]
+   * const list = SinglyLinkedList.fromArray([1, 2, 3, 4]);
+   * console.log(list.length); // 4
+   * console.log(list.getList()); // [1, 2, 3, 4]
+   * ```
+   */
+  public static fromArray<T>(arr: T[]): SinglyLinkedList<T> {
+    const list = new SinglyLinkedList<T>();
+    arr.forEach((value) => list.insertAtEnd(value));
+    return list;
+  }
+
+  /**
+   * Insert the given value at the end of the list
+   * @param value Value to be inserted at the end of the list
+   * @example
+   * ```typescript
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * list.insertAtEnd(4);
+   * console.log(list.length); // 4
+   * console.log(list.getList()); // [1, 2, 3, 4]
    * ```
    */
   public insertAtEnd(value: T): void {
@@ -37,15 +54,13 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
   }
   /**
    * Insert the given value at the start of the list
-   * @param value value to be inserted at the start of the list, should be of type {T}
+   * @param value value to be inserted at the start of the list
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtStart(1);
-   * list.insertAtStart(2);
-   * list.insertAtStart(3);
-   * console.log(list.length); // 3
-   * console.log(list.getList()); // [3, 2, 1]
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * list.insertAtStart(4);
+   * console.log(list.length); // 4
+   * console.log(list.getList()); // [4, 3, 2, 1]
    * ```
    */
   public insertAtStart(value: T): void {
@@ -66,15 +81,12 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param value value to be inserted at the given index, should be of type {T}
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
    * list.insertAtIndex(1, 4);
    * console.log(list.length); // 4
    * console.log(list.getList()); // [1, 4, 2, 3]
    * ```
-   * @throws {Error} if the index is out of bounds
+   * @throws {@link Error} if the index is out of bounds
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
@@ -108,20 +120,12 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param value The value to be inserted after the target value
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
    * list.insertAfter(2, 4);
    * console.log(list.length); // 4
    * console.log(list.getList()); // [1, 2, 4, 3]
    * ```
-   * @throws {Error} if the target value is not found
-   * @example
-   * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAfter(1, 1); // throws an error
-   * ```
+   * @throws {@link Error} if the target value is not found
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
@@ -151,15 +155,12 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param value The value to be inserted before the target value
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
    * list.insertBefore(2, 4);
    * console.log(list.length); // 4
    * console.log(list.getList()); // [1, 4, 2, 3]
    * ```
-   * @throws {Error} if the target value is not found
+   * @throws {@link Error} if the target value is not found
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
@@ -189,15 +190,12 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * delete the first node from the list and return its value
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
    * console.log(list.deleteFromStart()); // 1
    * console.log(list.length); // 2
    * console.log(list.getList()); // [2, 3]
    * ```
-   * @throws {Error} if the list is empty
+   * @throws {@link Error} if the list is empty
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
@@ -218,15 +216,12 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * Delete the last node from the list and return its value
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
    * console.log(list.deleteFromEnd()); // 3
    * console.log(list.length); // 2
    * console.log(list.getList()); // [1, 2]
    * ```
-   * @throws {Error} if the list is empty
+   * @throws {@link Error} if the list is empty
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
@@ -262,15 +257,12 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param index The index of the node to be deleted
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
    * console.log(list.deleteAtIndex(1)); // 2
    * console.log(list.length); // 2
    * console.log(list.getList()); // [1, 3]
    * ```
-   * @throws {Error} if the index is out of bounds
+   * @throws {@link Error} if the index is out of bounds
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
@@ -304,16 +296,13 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param target The value to be searched for in the list to delete the node before it
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
    * list.insertBefore(2, 4);
    * console.log(list.deleteBefore(2)); // 1
    * console.log(list.length); // 3
    * console.log(list.getList()); // [2, 4, 3]
    * ```
-   * @throws {Error} if the target value is not found
+   * @throws {@link Error} if the target value is not found
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
@@ -355,16 +344,13 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param target The value to be searched for in the list to delete the node after it
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
    * list.insertAfter(2, 4);
    * console.log(list.deleteAfter(2)); // 3
    * console.log(list.length); // 3
    * console.log(list.getList()); // [1, 2, 4]
    * ```
-   * @throws {Error} if the target value is not found
+   * @throws {@link Error} if the target value is not found
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
@@ -396,16 +382,12 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param target The value to be searched for in the list to delete the node containing it
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
-   * list.insertAtEnd(4);
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3, 4]);
    * console.log(list.deleteValue(3)); // 3
    * console.log(list.length); // 3
    * console.log(list.getList()); // [1, 2, 4]
    * ```
-   * @throws {Error} if the target value is not found
+   * @throws {@link Error} if the target value is not found
    * @example
    * ```typescript
    * const list = new SinglyLinkedList<number>();
@@ -438,14 +420,34 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
   }
 
   /**
+   * Reverse the list, this mutates the list
+   * @example
+   * ```typescript
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * list.reverse();
+   * console.log(list.getList()); // [3, 2, 1]
+   * ```
+   */
+  public reverse(): void {
+    if (this._head) {
+      let current: SLLNode<T> | null = this._head;
+      let previous = null;
+      while (current) {
+        const next: SLLNode<T> | null = current.next;
+        current.next = previous;
+        previous = current;
+        current = next;
+      }
+      this._tail = this._head;
+      this._head = previous;
+    }
+  }
+
+  /**
    * Display the list
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
-   * list.insertAtEnd(4);
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3, 4]);
    * list.display(); // 1 2 3 4
    * ```
    */
@@ -461,11 +463,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * Get the list in a JS array
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
-   * list.insertAtEnd(4);
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3, 4]);
    * console.log(list.getList()); // [1, 2, 3, 4]
    * ```
    */
@@ -483,17 +481,13 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param fn The function to apply to each node
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList<number>();
-   * list.insertAtEnd(1);
-   * list.insertAtEnd(2);
-   * list.insertAtEnd(3);
-   * list.insertAtEnd(4);
+   * const list = new SinglyLinkedList.fromArray([1, 2, 3, 4]);
    * cons arr: number[] = [];
-   * list.traverse(node => {arr.push(node.value*3) });
+   * list.forEachApply(node => {arr.push(node.value*3) });
    * console.log(arr); // [3, 6, 9, 12]
    * ```
    */
-  public traverseAndApply(callback: (value: SLLNode<T>) => void): void {
+  public forEachApply(callback: (value: SLLNode<T>) => void): void {
     let current = this._head;
     while (current !== null) {
       callback(current);
