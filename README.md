@@ -4,7 +4,7 @@
 
 ## Download
 
-Awesome DSA is released under the [MIT license](https://raw.githubusercontent.com/lodash/lodash/4.17.10-npm/LICENSE) & supports browser environments upwards of es6/es2015.
+Awesome DSA is released under the [MIT license](raw.githubusercontent.com/Nethrenial/awesome-dsa/doubly-linked-list/LICENSE) & guarantees support for browser environments upwards of es6/es2015.
 
 ## Installation
 
@@ -53,4 +53,4 @@ This include:
 ### Written By  
 
 Nethsara Sandeepa Elvitigala  
-[Twitter](https://twitter.com) | [linkedin](https://linkedin.in) | [Github](https://nethrenial.github.io) | [Facebook](https://facebook.com/nethsara.sandeepa)
+[Twitter](https://twitter.com/NethsaraE) | [linkedin](www.linkedin.com/in/nethsara-elvitigala) | [Github](https://github.com/Nethrenial) | [Facebook](https://facebook.com/nethsara.sandeepa)

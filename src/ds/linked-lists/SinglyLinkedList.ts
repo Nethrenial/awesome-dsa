@@ -35,7 +35,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param value Value to be inserted at the end of the list
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3]);
    * list.insertAtEnd(4);
    * console.log(list.length); // 4
    * console.log(list.getList()); // [1, 2, 3, 4]
@@ -57,7 +57,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param value value to be inserted at the start of the list
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3]);
    * list.insertAtStart(4);
    * console.log(list.length); // 4
    * console.log(list.getList()); // [4, 3, 2, 1]
@@ -81,7 +81,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param value value to be inserted at the given index, should be of type {T}
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3]);
    * list.insertAtIndex(1, 4);
    * console.log(list.length); // 4
    * console.log(list.getList()); // [1, 4, 2, 3]
@@ -120,7 +120,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param value The value to be inserted after the target value
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3]);
    * list.insertAfter(2, 4);
    * console.log(list.length); // 4
    * console.log(list.getList()); // [1, 2, 4, 3]
@@ -155,7 +155,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param value The value to be inserted before the target value
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3]);
    * list.insertBefore(2, 4);
    * console.log(list.length); // 4
    * console.log(list.getList()); // [1, 4, 2, 3]
@@ -190,7 +190,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * delete the first node from the list and return its value
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3]);
    * console.log(list.deleteFromStart()); // 1
    * console.log(list.length); // 2
    * console.log(list.getList()); // [2, 3]
@@ -216,7 +216,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * Delete the last node from the list and return its value
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3]);
    * console.log(list.deleteFromEnd()); // 3
    * console.log(list.length); // 2
    * console.log(list.getList()); // [1, 2]
@@ -257,7 +257,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param index The index of the node to be deleted
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3]);
    * console.log(list.deleteAtIndex(1)); // 2
    * console.log(list.length); // 2
    * console.log(list.getList()); // [1, 3]
@@ -296,7 +296,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param target The value to be searched for in the list to delete the node before it
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3]);
    * list.insertBefore(2, 4);
    * console.log(list.deleteBefore(2)); // 1
    * console.log(list.length); // 3
@@ -344,7 +344,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param target The value to be searched for in the list to delete the node after it
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3]);
    * list.insertAfter(2, 4);
    * console.log(list.deleteAfter(2)); // 3
    * console.log(list.length); // 3
@@ -382,7 +382,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param target The value to be searched for in the list to delete the node containing it
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3, 4]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3, 4]);
    * console.log(list.deleteValue(3)); // 3
    * console.log(list.length); // 3
    * console.log(list.getList()); // [1, 2, 4]
@@ -423,7 +423,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * Reverse the list, this mutates the list
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3]);
    * list.reverse();
    * console.log(list.getList()); // [3, 2, 1]
    * ```
@@ -447,7 +447,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * Display the list
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3, 4]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3, 4]);
    * list.display(); // 1 2 3 4
    * ```
    */
@@ -463,7 +463,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * Get the list in a JS array
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3, 4]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3, 4]);
    * console.log(list.getList()); // [1, 2, 3, 4]
    * ```
    */
@@ -481,7 +481,7 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
    * @param fn The function to apply to each node
    * @example
    * ```typescript
-   * const list = new SinglyLinkedList.fromArray([1, 2, 3, 4]);
+   * const list = SinglyLinkedList.fromArray([1, 2, 3, 4]);
    * cons arr: number[] = [];
    * list.forEachApply(node => {arr.push(node.value*3) });
    * console.log(arr); // [3, 6, 9, 12]
