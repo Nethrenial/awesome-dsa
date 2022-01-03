@@ -1,18 +1,15 @@
+import {BaseStack} from './abstracts/BaseStack'
+
 /**
- * Stack data structure.
+ * A Stack data structure that is limited in size.
  * @template T
  */
-export class LimitedStack<T = number> {
-  private _stack: Array<T | null>;
-  private _size: number;
+export class LimitedStack<T = number> extends BaseStack<T> {
   private _max: number;
-  private _top: number;
 
   constructor(capacity: number) {
-    this._stack = [];
-    this._size = 0;
+    super()
     this._max = capacity;
-    this._top = -1;
   }
 
   /**
@@ -54,21 +51,6 @@ export class LimitedStack<T = number> {
   }
 
   /**
-   * Returns the current filled size of the stack.
-   * @example
-   * ```typescript
-   * const stack = new LimitedStack(5);
-   * stack.push(1);
-   * stack.push(2);
-   * stack.push(3);
-   * stack.push(4);
-   * console.log(stack.size); // 4
-   * ```
-   */
-  get size(): number {
-    return this._size;
-  }
-  /**
    * Returns the max allowed size of the stack.
    * @example
    * ```typescript
@@ -80,19 +62,6 @@ export class LimitedStack<T = number> {
     return this._max;
   }
 
-  /**
-   * Returns true if the stack is empty, false otherwise.
-   * @example
-   * ```typescript
-   * const stack = new LimitedStack(5);
-   * console.log(stack.isEmpty()); // true
-   * stack.push(1);
-   * console.log(stack.isEmpty()); // false
-   * ```
-   */
-  public isEmpty(): boolean {
-    return this._top === -1;
-  }
 
   /**
    * Returns true if the stack is full, false otherwise.
@@ -137,81 +106,4 @@ export class LimitedStack<T = number> {
     this._size++;
   }
 
-  /**
-   * Pops the last element from the stack and returns it.
-   * @example
-   * ```typescript
-   * const stack = new LimitedStack<number>(10);
-   * stack.push(1);
-   * stack.push(2);
-   * console.log(stack.pop()); // 2
-   * ```
-   * @throws Throws an error if the stack is empty.
-   * @example
-   * ```typescript
-   * const stack = new LimitedStack<number>(10);
-   * stack.pop(); // throws Error: Stack Underflow!
-   * ```
-   */
-  public pop(): T {
-    if (this.isEmpty()) {
-      throw new Error("Stack Underflow!");
-    }
-    const item = this._stack[this._top];
-    this._stack[this._top] = null;
-    this._top--;
-    this._size--;
-    return item as T;
-  }
-
-  /**
-   * Returns the last element from the stack without removing it, returns null if the stack is empty.
-   * @example
-   * ```typescript
-   * const stack = new LimitedStack<number>(10);
-   * stack.push(1);
-   * stack.push(2);
-   * console.log(stack.peek()); // 2
-   * stack.pop();
-   * stack.pop();
-   * console.log(stack.peek()); // null
-   * ```
-   */
-  public peek(): T | null {
-    if (this.isEmpty()) {
-      return null;
-    }
-    return this._stack[this._top];
-  }
-
-  /**
-   * Returns the available elements in stack as an array.
-   * @example
-   * ```typescript
-   * const stack = new LimitedStack<number>(10);
-   * stack.push(1);
-   * stack.push(2);
-   * console.log(stack.toArray()); // [1, 2]
-   * ```
-   * */
-  public toArray(): Array<T | null> {
-    return this._stack.slice(0, this._top + 1);
-  }
-
-  /**
-   * Clears the stack.
-   * @example
-   * ```typescript
-   * const stack = new LimitedStack<number>(10);
-   * stack.push(1);
-   * stack.push(2);
-   * stack.clear();
-   * console.log(stack.toArray()); // []
-   * ```
-   */
-  public clear(): void {
-    this._stack = [];
-    this._top = -1;
-    this._size = 0;
-  }
 }
