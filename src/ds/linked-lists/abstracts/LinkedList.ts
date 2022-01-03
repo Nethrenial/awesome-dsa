@@ -73,6 +73,6 @@ export abstract class LinkedList<T, U extends LLNode<T>> {
   public abstract deleteValue(target: T): T;
   public abstract reverse(): void;
   public abstract display(): void;
-  public abstract getList(): T[];
+  public abstract toArray(): T[];
   public abstract forEachApply(callback: (value: U) => void): void;
 }

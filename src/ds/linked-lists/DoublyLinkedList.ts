@@ -1,6 +1,12 @@
 import { LinkedList } from "./abstracts/LinkedList";
 import { LLNode } from "./abstracts/LLNode";
 
+/**
+ * DLLNode, implements {@link LLNode}
+ * @extends LLNode
+ * @template T
+ * @param {T} value
+ */
 class DLLNode<T> implements LLNode<T> {
   public value: T;
   public next: DLLNode<T> | null;
@@ -13,7 +19,9 @@ class DLLNode<T> implements LLNode<T> {
 }
 
 /**
- * Doubly Linked List, inherits from {@link LinkedList}
+ * Doubly Linked List data structure, inherits from {@link LinkedList}
+ * @extends LinkedList
+ * @template T
  */
 export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
   constructor() {
@@ -26,7 +34,7 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * ```typescript
    * const list = DoublyLinkedList.fromArray([1, 2, 3, 4]);
    * console.log(list.length); // 4
-   * console.log(list.getList()); // [1, 2, 3, 4]
+   * console.log(list.toArray()); // [1, 2, 3, 4]
    * ```
    */
   public static fromArray<T>(arr: T[]): DoublyLinkedList<T> {
@@ -43,7 +51,7 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * const list = DoublyLinkedList.fromArray([1, 2, 3]);
    * list.insertAtEnd(4);
    * console.log(list.length); // 4
-   * console.log(list.getList()); // [1, 2, 3, 4]
+   * console.log(list.toArray()); // [1, 2, 3, 4]
    * ```
    */
   public insertAtEnd(value: T): void {
@@ -67,7 +75,7 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * const list = DoublyLinkedList.fromArray([1, 2, 3]);
    * list.insertAtStart(4);
    * console.log(list.length); // 4
-   * console.log(list.getList()); // [4, 3, 2, 1]
+   * console.log(list.toArray()); // [4, 3, 2, 1]
    * ```
    */
   public insertAtStart(value: T): void {
@@ -93,7 +101,7 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * const list = DoublyLinkedList.fromArray([1, 2, 3]);
    * list.insertAtIndex(1, 4);
    * console.log(list.length); // 4
-   * console.log(list.getList()); // [1, 4, 2, 3]
+   * console.log(list.toArray()); // [1, 4, 2, 3]
    * ```
    * @throws {@link Error} if the index is out of bounds
    * @example
@@ -133,7 +141,7 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * const list = DoublyLinkedList.fromArray([1, 2, 3]);
    * list.insertAfter(2, 4);
    * console.log(list.length); // 4
-   * console.log(list.getList()); // [1, 2, 4, 3]
+   * console.log(list.toArray()); // [1, 2, 4, 3]
    * ```
    * @throws {@link Error} if the target value is not found
    * @example
@@ -181,7 +189,7 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * const list = DoublyLinkedList.fromArray([1, 2, 3]);
    * list.insertBefore(2, 4);
    * console.log(list.length); // 4
-   * console.log(list.getList()); // [1, 4, 2, 3]
+   * console.log(list.toArray()); // [1, 4, 2, 3]
    * ```
    * @throws {@link Error} if the target value is not found
    * @example
@@ -221,7 +229,7 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * const list = DoublyLinkedList.fromArray([1, 2, 3]);
    * console.log(list.deleteFromStart()); // 1
    * console.log(list.length); // 2
-   * console.log(list.getList()); // [2, 3]
+   * console.log(list.toArray()); // [2, 3]
    * ```
    * @throws {@link Error} if the list is empty
    * @example
@@ -256,7 +264,7 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * const list = DoublyLinkedList.fromArray([1, 2, 3]);
    * console.log(list.deleteFromEnd()); // 3
    * console.log(list.length); // 2
-   * console.log(list.getList()); // [1, 2]
+   * console.log(list.toArray()); // [1, 2]
    * ```
    * @throws {@link Error} if the list is empty
    * @example
@@ -292,7 +300,7 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * const list = DoublyLinkedList.fromArray([1, 2, 3]);
    * console.log(list.deleteAtIndex(1)); // 2
    * console.log(list.length); // 2
-   * console.log(list.getList()); // [1, 3]
+   * console.log(list.toArray()); // [1, 3]
    * ```
    * @throws {@link Error} if the index is out of bounds
    * @example
@@ -353,7 +361,7 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * list.insertBefore(2, 4);
    * console.log(list.deleteBefore(2)); // 1
    * console.log(list.length); // 3
-   * console.log(list.getList()); // [2, 4, 3]
+   * console.log(list.toArray()); // [2, 4, 3]
    * ```
    * @throws {@link Error} if the target value is not found
    * @example
@@ -403,7 +411,7 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * list.insertAfter(2, 4);
    * console.log(list.deleteAfter(2)); // 3
    * console.log(list.length); // 3
-   * console.log(list.getList()); // [1, 2, 4]
+   * console.log(list.toArray()); // [1, 2, 4]
    * ```
    * @throws {@link Error} if the target value is not found
    * @example
@@ -454,7 +462,7 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * const list = DoublyLinkedList.fromArray([1, 2, 3, 4]);
    * console.log(list.deleteValue(3)); // 3
    * console.log(list.length); // 3
-   * console.log(list.getList()); // [1, 2, 4]
+   * console.log(list.toArray()); // [1, 2, 4]
    * ```
    * @throws {@link Error} if the target value is not found
    * @example
@@ -501,7 +509,7 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * ```typescript
    * const list = DoublyLinkedList.fromArray([1, 2, 3]);
    * list.reverse();
-   * console.log(list.getList()); // [3, 2, 1]
+   * console.log(list.toArray()); // [3, 2, 1]
    * ```
    */
   public reverse(): void {
@@ -566,17 +574,17 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
    * @example
    * ```typescript
    * const list = DoublyLinkedList.fromArray([1, 2, 3, 4]);
-   * console.log(list.getList('n')); // [1, 2, 3, 4]
-   * console.log(list.getList('r')); // [4, 3, 2, 1]
+   * console.log(list.toArray('n')); // [1, 2, 3, 4]
+   * console.log(list.toArray('r')); // [4, 3, 2, 1]
    * ```
    * @throws {@link Error} if mode is not `n` or `r`
    * @example
    * ```typescript
    * const list = DoublyLinkedList.fromArray([1, 2, 3, 4]);
-   * console.log(list.getList('a')); // throws an error
+   * console.log(list.toArray('a')); // throws an error
    * ```
    */
-  public getList(mode: "n" | "r" = "n"): T[] {
+  public toArray(mode: "n" | "r" = "n"): T[] {
     if (this._head === null) return [];
     const list: T[] = [];
     if (mode === "n") {
