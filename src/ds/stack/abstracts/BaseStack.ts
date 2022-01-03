@@ -17,7 +17,7 @@ export class BaseStack<T = number> {
    * Returns the current filled size of the stack.
    * @example
    * ```typescript
-   * stack.push(1); // stack is an instance of a class inheriting from BaseStack 
+   * stack.push(1); // stack is an instance of a class inheriting from BaseStack
    * stack.push(2);
    * stack.push(3);
    * stack.push(4);

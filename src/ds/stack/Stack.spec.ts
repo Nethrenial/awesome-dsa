@@ -13,7 +13,7 @@ export class StackTestSuite {
     stack.push(3);
     expect.toBeEqual(stack.size, 3);
     }
-    
+
   @Test()
   public initializationTest() {
     const stack = new Stack();
@@ -39,7 +39,7 @@ export class StackTestSuite {
     stack.push(1);
     expect.toBeEqual(stack.isEmpty(), false);
     }
-    
+
 
   @Test()
   public peekTest() {
