@@ -1,15 +1,15 @@
-import {BaseStack} from './abstracts/BaseStack'
+import {BaseStack} from '../abstracts/BaseStack'
 
 /**
  * A Stack data structure that is limited in size.
  * @template T
  */
 export class LimitedStack<T = number> extends BaseStack<T> {
-  private _max: number;
+  #_max: number;
 
   constructor(capacity: number) {
     super()
-    this._max = capacity;
+    this.#_max = capacity;
   }
 
   /**
@@ -59,7 +59,7 @@ export class LimitedStack<T = number> extends BaseStack<T> {
    * ```
    */
   get max(): number {
-    return this._max;
+    return this.#_max;
   }
 
 
@@ -77,7 +77,7 @@ export class LimitedStack<T = number> extends BaseStack<T> {
    * ```
    */
   public isFull(): boolean {
-    return this._top === this._max - 1;
+    return this._top === this.#_max - 1;
   }
 
   /**

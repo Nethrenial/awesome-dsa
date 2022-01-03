@@ -1,4 +1,4 @@
-import { BaseStack } from "./abstracts/BaseStack";
+import { BaseStack } from "../abstracts/BaseStack";
 
 /**
  * A Stack data structure that is unlimited in size.

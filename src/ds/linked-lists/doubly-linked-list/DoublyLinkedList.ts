@@ -1,5 +1,5 @@
-import { LinkedList } from "./abstracts/LinkedList";
-import { LLNode } from "./abstracts/LLNode";
+import { LinkedList } from "../abstracts/LinkedList";
+import { LLNode } from "../abstracts/LLNode";
 
 /**
  * DLLNode, implements {@link LLNode}
