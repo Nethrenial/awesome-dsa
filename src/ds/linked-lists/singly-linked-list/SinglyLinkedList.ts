@@ -17,7 +17,7 @@ class SLLNode<T> implements LLNode<T> {
 }
 
 /**
- * Singly Linked List data structure, inherits from {@link LinkedList}
+ * A linked list that has nodes which only has a reference to the next node.Inherits from {@link LinkedList}
  * @extends LinkedList
  * @template T
  */

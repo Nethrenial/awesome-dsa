@@ -19,7 +19,7 @@ class DLLNode<T> implements LLNode<T> {
 }
 
 /**
- * Doubly Linked List data structure, inherits from {@link LinkedList}
+ * Functionality is the same for the most part (there are two more methods in this class) as `SinglyLinkedList` for the end users but  implemented with nodes that has references to both next and previous node, inherits from {@link LinkedList}
  * @extends LinkedList
  * @template T
  */

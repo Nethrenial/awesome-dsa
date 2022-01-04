@@ -1,7 +1,8 @@
 import { BaseStack } from "../abstracts/BaseStack";
 
 /**
- * A Stack data structure that is unlimited in size.
+ * A more practical and useful implementation of a stack which grows as needed. Inherits from {@link BaseStack}.
+ * @extends BaseStack
  * @template T
  */
 export class Stack<T> extends BaseStack<T> {

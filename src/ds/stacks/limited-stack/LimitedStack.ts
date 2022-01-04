@@ -1,7 +1,8 @@
 import {BaseStack} from '../abstracts/BaseStack'
 
 /**
- * A Stack data structure that is limited in size.
+ * A classic implementation of Stack that is limited to the size it's given at the initialization. Inherits from {@link BaseStack}.
+ * @extends BaseStack
  * @template T
  */
 export class LimitedStack<T = number> extends BaseStack<T> {
