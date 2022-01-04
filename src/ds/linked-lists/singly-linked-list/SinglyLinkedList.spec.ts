@@ -5,14 +5,14 @@ import { SinglyLinkedList } from "./SinglyLinkedList";
 @TestSuite()
 export class SinglyLinkedListTestSuite {
   @Test()
-  public initializationTest(): void  {
+  public initializationTest(): void {
     const list = new SinglyLinkedList<number>();
     expect.toBeEqual(list.length, 0);
     expect.arraysToBeEqual(list.toArray(), []);
   }
 
   @Test()
-  public insertAtEndTest(): void  {
+  public insertAtEndTest(): void {
     const list = new SinglyLinkedList<number>();
     list.insertAtEnd(2);
     list.insertAtEnd(3);
@@ -22,7 +22,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public insertAtStartTest(): void  {
+  public insertAtStartTest(): void {
     const list = new SinglyLinkedList<number>();
     list.insertAtStart(1);
     list.insertAtStart(2);
@@ -32,7 +32,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public insertAtIndexCorrectlyTest(): void  {
+  public insertAtIndexCorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     list.insertAtIndex(1, 4);
     expect.toBeEqual(list.length, 4);
@@ -40,7 +40,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public insertAtIndexIncorrectlyTest(): void  {
+  public insertAtIndexIncorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     expect.toThrow(() => list.insertAtIndex(4, 4));
     expect.toThrow(() => list.insertAtIndex(-1, 4));
@@ -48,7 +48,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public insertAfterCorrectlyTest(): void  {
+  public insertAfterCorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     list.insertAfter(2, 4);
     expect.toBeEqual(list.length, 4);
@@ -56,7 +56,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public insertAfterIncorrectlyTest(): void  {
+  public insertAfterIncorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     expect.toThrow(() => list.insertAfter(4, 4));
     expect.toThrow(() => list.insertAfter(-1, 4));
@@ -64,7 +64,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public insertBeforeCorrectlyTest(): void  {
+  public insertBeforeCorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     list.insertBefore(2, 4);
     expect.toBeEqual(list.length, 4);
@@ -72,7 +72,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public insertBeforeIncorrectlyTest(): void  {
+  public insertBeforeIncorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     expect.toThrow(() => list.insertBefore(4, 4));
     expect.toThrow(() => list.insertBefore(-1, 4));
@@ -80,7 +80,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteFromStartCorrectlyTest(): void  {
+  public deleteFromStartCorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     expect.toBeEqual(list.deleteFromStart(), 1);
     expect.toBeEqual(list.length, 2);
@@ -88,13 +88,13 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteFromStartIncorrectlyTest(): void  {
+  public deleteFromStartIncorrectlyTest(): void {
     const list = new SinglyLinkedList<number>();
     expect.toThrow(() => list.deleteFromStart());
   }
 
   @Test()
-  public deleteFromEndCorrectlyTest(): void  {
+  public deleteFromEndCorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     expect.toBeEqual(list.deleteFromEnd(), 3);
     expect.toBeEqual(list.length, 2);
@@ -102,13 +102,13 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteFromEndIncorrectlyTest(): void  {
+  public deleteFromEndIncorrectlyTest(): void {
     const list = new SinglyLinkedList<number>();
     expect.toThrow(() => list.deleteFromEnd());
   }
 
   @Test()
-  public deleteAtIndexCorrectlyTest(): void  {
+  public deleteAtIndexCorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     expect.toBeEqual(list.deleteAtIndex(1), 2);
     expect.toBeEqual(list.length, 2);
@@ -116,7 +116,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteAtIndexIncorrectlyTest(): void  {
+  public deleteAtIndexIncorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     expect.toThrow(() => list.deleteAtIndex(4));
     expect.toThrow(() => list.deleteAtIndex(-1));
@@ -124,7 +124,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteAfterCorrectlyTest(): void  {
+  public deleteAfterCorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     list.insertAfter(2, 4);
     expect.toBeEqual(list.deleteAfter(2), 4);
@@ -133,7 +133,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteAfterIncorrectlyTest(): void  {
+  public deleteAfterIncorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     expect.toThrow(() => list.deleteAfter(4));
     expect.toThrow(() => list.deleteAfter(-1));
@@ -141,7 +141,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteBeforeCorrectlyTest(): void  {
+  public deleteBeforeCorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     list.insertBefore(2, 4);
     expect.toBeEqual(list.deleteBefore(2), 4);
@@ -150,7 +150,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteBeforeIncorrectlyTest(): void  {
+  public deleteBeforeIncorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     expect.toThrow(() => list.deleteBefore(4));
     expect.toThrow(() => list.deleteBefore(-1));
@@ -158,7 +158,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteValueCorrectlyTest(): void  {
+  public deleteValueCorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     list.insertAtEnd(4);
     list.insertAtEnd(5);
@@ -168,7 +168,7 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteValueIncorrectlyTest(): void  {
+  public deleteValueIncorrectlyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     list.insertAtEnd(4);
     list.insertAtEnd(5);
@@ -178,19 +178,19 @@ export class SinglyLinkedListTestSuite {
   }
 
   @Test()
-  public displayTest(): void  {
+  public displayTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     list.display();
   }
 
   @Test()
-  public toArrayTest(): void  {
+  public toArrayTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     expect.arraysToBeEqual(list.toArray(), [1, 2, 3]);
   }
 
   @Test()
-  public traverseAndApplyTest(): void  {
+  public traverseAndApplyTest(): void {
     const list = SinglyLinkedList.fromArray([1, 2, 3]);
     const arr1: number[] = [];
     list.forEachApply((node) => {

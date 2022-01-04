@@ -4,14 +4,14 @@ import { DoublyLinkedList } from "./DoublyLinkedList";
 @TestSuite()
 export class DoublyLinkedListTestSuite {
   @Test()
-  public initializationTest(): void  {
+  public initializationTest(): void {
     const list = new DoublyLinkedList<number>();
     expect.toBeEqual(list.length, 0);
     expect.arraysToBeEqual(list.toArray(), []);
   }
 
   @Test()
-  public insertAtEndTest(): void  {
+  public insertAtEndTest(): void {
     const list = new DoublyLinkedList<number>();
     list.insertAtEnd(2);
     list.insertAtEnd(3);
@@ -21,7 +21,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public insertAtStartTest(): void  {
+  public insertAtStartTest(): void {
     const list = new DoublyLinkedList<number>();
     list.insertAtStart(1);
     list.insertAtStart(2);
@@ -31,7 +31,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public insertAtIndexCorrectlyTest(): void  {
+  public insertAtIndexCorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     list.insertAtIndex(1, 4);
     expect.toBeEqual(list.length, 4);
@@ -39,7 +39,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public insertAtIndexIncorrectlyTest(): void  {
+  public insertAtIndexIncorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     expect.toThrow(() => list.insertAtIndex(4, 4));
     expect.toThrow(() => list.insertAtIndex(-1, 4));
@@ -47,7 +47,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public insertAfterCorrectlyTest(): void  {
+  public insertAfterCorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     list.insertAfter(2, 4);
     expect.toBeEqual(list.length, 4);
@@ -55,7 +55,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public insertAfterIncorrectlyTest(): void  {
+  public insertAfterIncorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     expect.toThrow(() => list.insertAfter(4, 4));
     expect.toThrow(() => list.insertAfter(-1, 4));
@@ -63,7 +63,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public insertBeforeCorrectlyTest(): void  {
+  public insertBeforeCorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     list.insertBefore(2, 4);
     expect.toBeEqual(list.length, 4);
@@ -71,7 +71,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public insertBeforeIncorrectlyTest(): void  {
+  public insertBeforeIncorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     expect.toThrow(() => list.insertBefore(4, 4));
     expect.toThrow(() => list.insertBefore(-1, 4));
@@ -79,7 +79,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteFromStartCorrectlyTest(): void  {
+  public deleteFromStartCorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     expect.toBeEqual(list.deleteFromStart(), 1);
     expect.toBeEqual(list.length, 2);
@@ -87,13 +87,13 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteFromStartIncorrectlyTest(): void  {
+  public deleteFromStartIncorrectlyTest(): void {
     const list = new DoublyLinkedList<number>();
     expect.toThrow(() => list.deleteFromStart());
   }
 
   @Test()
-  public deleteFromEndCorrectlyTest(): void  {
+  public deleteFromEndCorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     expect.toBeEqual(list.deleteFromEnd(), 3);
     expect.toBeEqual(list.length, 2);
@@ -101,13 +101,13 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteFromEndIncorrectlyTest(): void  {
+  public deleteFromEndIncorrectlyTest(): void {
     const list = new DoublyLinkedList<number>();
     expect.toThrow(() => list.deleteFromEnd());
   }
 
   @Test()
-  public deleteAtIndexCorrectlyTest(): void  {
+  public deleteAtIndexCorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3, 4]);
     expect.toBeEqual(list.deleteAtIndex(2), 3);
     expect.toBeEqual(list.length, 3);
@@ -115,7 +115,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteAtIndexIncorrectlyTest(): void  {
+  public deleteAtIndexIncorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     expect.toThrow(() => list.deleteAtIndex(4));
     expect.toThrow(() => list.deleteAtIndex(-1));
@@ -123,7 +123,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteAfterCorrectlyTest(): void  {
+  public deleteAfterCorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     list.insertAfter(2, 4);
     expect.toBeEqual(list.deleteAfter(2), 4);
@@ -132,7 +132,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteAfterIncorrectlyTest(): void  {
+  public deleteAfterIncorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     expect.toThrow(() => list.deleteAfter(4));
     expect.toThrow(() => list.deleteAfter(-1));
@@ -140,7 +140,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteBeforeCorrectlyTest(): void  {
+  public deleteBeforeCorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     list.insertBefore(2, 4);
     expect.toBeEqual(list.deleteBefore(2), 4);
@@ -149,7 +149,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteBeforeIncorrectlyTest(): void  {
+  public deleteBeforeIncorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     expect.toThrow(() => list.deleteBefore(4));
     expect.toThrow(() => list.deleteBefore(-1));
@@ -157,7 +157,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteValueCorrectlyTest(): void  {
+  public deleteValueCorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     list.insertAtEnd(4);
     list.insertAtEnd(5);
@@ -167,7 +167,7 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public deleteValueIncorrectlyTest(): void  {
+  public deleteValueIncorrectlyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     list.insertAtEnd(4);
     list.insertAtEnd(5);
@@ -177,31 +177,31 @@ export class DoublyLinkedListTestSuite {
   }
 
   @Test()
-  public displayTest(): void  {
+  public displayTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     list.display();
   }
 
   @Test()
-  public displayReverseTest(): void  {
+  public displayReverseTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     list.display("r");
   }
 
   @Test()
-  public toArrayTest(): void  {
+  public toArrayTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     expect.arraysToBeEqual(list.toArray(), [1, 2, 3]);
   }
 
   @Test()
-  public toArrayReverseTest(): void  {
+  public toArrayReverseTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     expect.arraysToBeEqual(list.toArray("r"), [3, 2, 1]);
   }
 
   @Test()
-  public forEachApplyTest(): void  {
+  public forEachApplyTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     const arr1: number[] = [];
     list.forEachApply((node) => {
@@ -216,7 +216,7 @@ export class DoublyLinkedListTestSuite {
     expect.arraysToBeEqual(arr2, [3, 6, 9]);
   }
   @Test()
-  public forEachApplyReverseTest(): void  {
+  public forEachApplyReverseTest(): void {
     const list = DoublyLinkedList.fromArray([1, 2, 3]);
     const arr1: number[] = [];
     list.forEachApply((node) => {
