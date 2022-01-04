@@ -4,7 +4,6 @@ import { Stack } from "./Stack";
 //write a test suite for the stack class
 @TestSuite()
 export class StackTestSuite {
-
   @Test()
   public sizeSet() {
     const stack = new Stack<number>();
@@ -12,7 +11,7 @@ export class StackTestSuite {
     stack.push(2);
     stack.push(3);
     expect.toBeEqual(stack.size, 3);
-    }
+  }
 
   @Test()
   public initializationTest() {
@@ -38,8 +37,7 @@ export class StackTestSuite {
     const stack = new Stack<number>();
     stack.push(1);
     expect.toBeEqual(stack.isEmpty(), false);
-    }
-
+  }
 
   @Test()
   public peekTest() {
@@ -65,10 +63,9 @@ export class StackTestSuite {
     expect.arraysToBeEqual(stack.toArray(), [1, 2]);
   }
 
-
   @Test()
   public popTest() {
-    const stack = Stack.fromArray([1, 2, 3, 4 ,5]);
+    const stack = Stack.fromArray([1, 2, 3, 4, 5]);
     expect.toBeEqual(stack.pop(), 5);
     expect.toBeEqual(stack.size, 4);
     expect.arraysToBeEqual(stack.toArray(), [1, 2, 3, 4]);
