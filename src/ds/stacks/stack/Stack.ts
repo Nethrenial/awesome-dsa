@@ -6,10 +6,10 @@ import { BaseStack } from "../abstracts/BaseStack";
  * @template T
  */
 export class Stack<T> extends BaseStack<T> {
-    constructor() {
-        super();
-    }
-    /**
+  constructor() {
+    super();
+  }
+  /**
    * Returns a stack from the given array, this stack is unlimited in size
    * @param array Array to convert to a stack.
    * @example
@@ -20,14 +20,12 @@ export class Stack<T> extends BaseStack<T> {
    * console.log(stack.pop()); // 1
    * ```
    * */
-  public static fromArray<T>(
-    arr: Array<T>
-  ): Stack<T> {
-      const stack = new Stack<T>();
-      for (const item of arr) {
-        stack.push(item);
-      }
-      return stack;
+  public static fromArray<T>(arr: Array<T>): Stack<T> {
+    const stack = new Stack<T>();
+    for (const item of arr) {
+      stack.push(item);
+    }
+    return stack;
   }
 
   /**
@@ -46,5 +44,4 @@ export class Stack<T> extends BaseStack<T> {
     this._top++;
     this._size++;
   }
-
 }
