@@ -1,5 +1,5 @@
 class Edge<T=number> {
-    constructor(public from: T, public to: T, public weight?: number) { }
+    constructor(from: T, to: T, weight?: number) { }
 }
 
 /**
