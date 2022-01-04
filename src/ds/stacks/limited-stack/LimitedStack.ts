@@ -1,4 +1,4 @@
-import {BaseStack} from '../abstracts/BaseStack'
+import { BaseStack } from "../abstracts/BaseStack";
 
 /**
  * A classic implementation of Stack that is limited to the size it's given at the initialization. Inherits from {@link BaseStack}.
@@ -9,7 +9,7 @@ export class LimitedStack<T = number> extends BaseStack<T> {
   #_max: number;
 
   constructor(capacity: number) {
-    super()
+    super();
     this.#_max = capacity;
   }
 
@@ -63,7 +63,6 @@ export class LimitedStack<T = number> extends BaseStack<T> {
     return this.#_max;
   }
 
-
   /**
    * Returns true if the stack is full, false otherwise.
    * @example
@@ -106,5 +105,4 @@ export class LimitedStack<T = number> extends BaseStack<T> {
     this._stack[++this._top] = item;
     this._size++;
   }
-
 }
