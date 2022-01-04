@@ -24,9 +24,7 @@ class DLLNode<T> implements LLNode<T> {
  * @template T
  */
 export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
-  constructor() {
-    super();
-  }
+
   /**
    * Returns a instance of {@link DoublyLinkedList} with the values in the given list
    * @param arr array of values to create the list from

@@ -22,9 +22,6 @@ class SLLNode<T> implements LLNode<T> {
  * @template T
  */
 export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
-  constructor() {
-    super();
-  }
 
   /**
    * Returns a instance of {@link SinglyLinkedList} with the values in the given list

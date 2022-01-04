@@ -1,5 +1,12 @@
 class Edge<T = number> {
-  constructor(public from: T, public to: T, public weight?: number) {}
+  public from: T;
+  public to: T;
+  public weight?: number;
+  constructor(from: T, to: T, weight?: number) { 
+    this.from = from;
+    this.to = to;
+    this.weight = weight;
+  }
 }
 
 /**
@@ -115,8 +122,8 @@ export class Graph<T = number> {
    * ```
    */
   public getNeighbors(vertex: T): Set<T> {
-    if (this.hasVertex(vertex)) {
-      return this.#_graph.get(vertex)!;
+    if (this.#_graph.has(vertex)) {
+      return this.#_graph.get(vertex) as Set<T>;
     }
     throw new Error(`Vertex ${vertex} not found in graph`);
   }
@@ -159,7 +166,7 @@ export class Graph<T = number> {
     const path: T[] = [];
     queue.push(start);
     while (queue.length > 0) {
-      const vertex: T = queue.shift()!;
+      const vertex = queue.shift() as T;
       if (!visited.has(vertex)) {
         visited.add(vertex);
         const neighbors: Set<T> = this.getNeighbors(vertex);
@@ -196,7 +203,7 @@ export class Graph<T = number> {
     const path: T[] = [];
     queue.push(start);
     while (queue.length > 0) {
-      const vertex: T = queue.shift()!;
+      const vertex = queue.shift() as T;
       if (vertex === finish) {
         return path;
       }
@@ -235,7 +242,7 @@ export class Graph<T = number> {
     const path: T[] = [];
     stack.push(start);
     while (stack.length > 0) {
-      const vertex: T = stack.pop()!;
+      const vertex = stack.pop() as T;
       console.log(`Popped ${vertex}`);
       if (!visited.has(vertex)) {
         visited.add(vertex);
@@ -273,7 +280,7 @@ export class Graph<T = number> {
     const path: T[] = [];
     stack.push(start);
     while (stack.length > 0) {
-      const vertex: T = stack.pop()!;
+      const vertex = stack.pop() as T;
       console.log(`Popped ${vertex}`);
       if (vertex === finish) {
         return path;
@@ -291,275 +298,275 @@ export class Graph<T = number> {
     return false;
   }
 
-  // public Dijkstra (start: T, finish: T): T[] | false {
-  //     const queue: T[] = [];
-  //     const visited: Set<T> = new Set<T>();
-  //     const path: T[] = [];
-  //     queue.push(start);
-  //     while(queue.length > 0) {
-  //         const vertex: T = queue.shift()!;
-  //         if(vertex === finish) {
-  //             return path;
-  //         }
-  //         if(!visited.has(vertex)) {
-  //             visited.add(vertex);
-  //             const neighbors: Set<T> = this.getNeighbors(vertex);
-  //             for (const neighbor of neighbors) {
-  //                 queue.push(neighbor);
-  //             }
-  //             path.push(vertex);
-  //         }
-  //     }
-  //     return false;
-  // }
+  public Dijkstra (start: T, finish: T): T[] | false {
+      const queue: T[] = [];
+      const visited: Set<T> = new Set<T>();
+      const path: T[] = [];
+      queue.push(start);
+      while(queue.length > 0) {
+          const vertex = queue.shift() as T;
+          if(vertex === finish) {
+              return path;
+          }
+          if(!visited.has(vertex)) {
+              visited.add(vertex);
+              const neighbors: Set<T> = this.getNeighbors(vertex);
+              for (const neighbor of neighbors) {
+                  queue.push(neighbor);
+              }
+              path.push(vertex);
+          }
+      }
+      return false;
+  }
 
-  // public FloydWarshall (): void {
-  //     const vertices: Set<T> = this.getVertices();
-  //     const distances: Map<T, Map<T, number>> = new Map<T, Map<T, number>>();
-  //     for(const vertex of vertices) {
-  //         distances.set(vertex, new Map<T, number>());
-  //         for(const neighbor of this.getNeighbors(vertex)) {
-  //             distances.get(vertex)!.set(neighbor, 1);
-  //         }
-  //     }
-  //     for(const vertex of vertices) {
-  //         for(const neighbor of this.getNeighbors(vertex)) {
-  //             for(const other of vertices) {
-  //                 if(other !== vertex && other !== neighbor) {
-  //                     const distance: number = distances.get(vertex)!.get(neighbor)! + distances.get(neighbor)!.get(other)!;
-  //                     if(!distances.get(vertex)!.has(other) || distance < distances.get(vertex)!.get(other)!) {
-  //                         distances.get(vertex)!.set(other, distance);
-  //                     }
-  //                 }
-  //             }
-  //         }
-  //     }
-  // }
+  public FloydWarshall (): void {
+      const vertices: Set<T> = this.getVertices();
+      const distances: Map<T, Map<T, number>> = new Map<T, Map<T, number>>();
+      for(const vertex of vertices) {
+          distances.set(vertex, new Map<T, number>());
+          for(const neighbor of this.getNeighbors(vertex)) {
+              distances.get(vertex)?.set(neighbor, 1);
+          }
+      }
+      for(const vertex of vertices) {
+          for(const neighbor of this.getNeighbors(vertex)) {
+              for(const other of vertices) {
+                  if(other !== vertex && other !== neighbor) {
+                      const distance: number = distances.get(vertex)?.get(neighbor) as number + (distances.get(neighbor)?.get(other) as number);
+                      if(!distances.get(vertex)?.has(other) || distance < (distances.get(vertex)?.get(other) as number)) {
+                          (distances.get(vertex) as Map<T, number>).set(other, distance);
+                      }
+                  }
+              }
+          }
+      }
+  }
 
-  // public Prim (start: T): T[] {
-  //     const queue: T[] = [];
-  //     const visited: Set<T> = new Set<T>();
-  //     const path: T[] = [];
-  //     queue.push(start);
-  //     while(queue.length > 0) {
-  //         const vertex: T = queue.shift()!;
-  //         if(!visited.has(vertex)) {
-  //             visited.add(vertex);
-  //             const neighbors: Set<T> = this.getNeighbors(vertex);
-  //             for(const neighbor of neighbors) {
-  //                 queue.push(neighbor);
-  //             }
-  //             path.push(vertex);
-  //         }
-  //     }
-  //     return path;
-  // }
+  public Prim (start: T): T[] {
+      const queue: T[] = [];
+      const visited: Set<T> = new Set<T>();
+      const path: T[] = [];
+      queue.push(start);
+      while(queue.length > 0) {
+          const vertex = queue.shift() as T;
+          if(!visited.has(vertex)) {
+              visited.add(vertex);
+              const neighbors: Set<T> = this.getNeighbors(vertex);
+              for(const neighbor of neighbors) {
+                  queue.push(neighbor);
+              }
+              path.push(vertex);
+          }
+      }
+      return path;
+  }
 
-  // public Kruskal (): void {
-  //     const vertices: Set<T> = this.getVertices();
-  //     const edges: Set<Edge<T>> = new Set<Edge<T>>();
-  //     for(const vertex of vertices) {
-  //         for(const neighbor of this.getNeighbors(vertex)) {
-  //             edges.add(new Edge<T>(vertex, neighbor));
-  //         }
-  //     }
-  //     const tree: Set<Edge<T>> = new Set<Edge<T>>();
-  //     while(edges.size > 0) {
-  //         const edge: Edge<T> = edges.values().next().value;
-  //         const [v1, v2]: [T, T] = [edge.from, edge.to];
-  //         if(!tree.has(edge) && !tree.has(new Edge<T>(v2, v1))) {
-  //             tree.add(edge);
-  //             edges.delete(edge);
-  //         }
-  //     }
-  // }
+  public Kruskal (): void {
+      const vertices: Set<T> = this.getVertices();
+      const edges: Set<Edge<T>> = new Set<Edge<T>>();
+      for(const vertex of vertices) {
+          for(const neighbor of this.getNeighbors(vertex)) {
+              edges.add(new Edge<T>(vertex, neighbor));
+          }
+      }
+      const tree: Set<Edge<T>> = new Set<Edge<T>>();
+      while(edges.size > 0) {
+          const edge: Edge<T> = edges.values().next().value;
+          const [v1, v2]: [T, T] = [edge.from, edge.to];
+          if(!tree.has(edge) && !tree.has(new Edge<T>(v2, v1))) {
+              tree.add(edge);
+              edges.delete(edge);
+          }
+      }
+  }
 
-  // public isBipartite (): boolean {
-  //     const vertices: Set<T> = this.getVertices();
-  //     const visited: Set<T> = new Set<T>();
-  //     const queue: T[] = [];
-  //     const color: Map<T, boolean> = new Map<T, boolean>();
-  //     queue.push(vertices.values().next().value);
-  //     while(queue.length > 0) {
-  //         const vertex: T = queue.shift()!;
-  //         if(!visited.has(vertex)) {
-  //             visited.add(vertex);
-  //             const neighbors: Set<T> = this.getNeighbors(vertex);
-  //             for(const neighbor of neighbors) {
-  //                 if(!visited.has(neighbor)) {
-  //                     queue.push(neighbor);
-  //                     color.set(neighbor, !color.get(vertex)!);
-  //                 }
-  //             }
-  //         }
-  //     }
-  //     for(const vertex of vertices) {
-  //         if(!color.has(vertex)) {
-  //             return false;
-  //         }
-  //     }
-  //     return true;
-  // }
+  public isBipartite (): boolean {
+      const vertices: Set<T> = this.getVertices();
+      const visited: Set<T> = new Set<T>();
+      const queue: T[] = [];
+      const color: Map<T, boolean> = new Map<T, boolean>();
+      queue.push(vertices.values().next().value);
+      while(queue.length > 0) {
+          const vertex = queue.shift() as T;
+          if(!visited.has(vertex)) {
+              visited.add(vertex);
+              const neighbors: Set<T> = this.getNeighbors(vertex);
+              for(const neighbor of neighbors) {
+                  if(!visited.has(neighbor)) {
+                      queue.push(neighbor);
+                      color.set(neighbor, !color.get(vertex));
+                  }
+              }
+          }
+      }
+      for(const vertex of vertices) {
+          if(!color.has(vertex)) {
+              return false;
+          }
+      }
+      return true;
+  }
 
-  // public isConnected (): boolean {
-  //     const vertices: Set<T> = this.getVertices();
-  //     const visited: Set<T> = new Set<T>();
-  //     const queue: T[] = [];
-  //     queue.push(vertices.values().next().value);
-  //     while(queue.length > 0) {
-  //         const vertex: T = queue.shift()!;
-  //         if(!visited.has(vertex)) {
-  //             visited.add(vertex);
-  //             const neighbors: Set<T> = this.getNeighbors(vertex);
-  //             for(const neighbor of neighbors) {
-  //                 if(!visited.has(neighbor)) {
-  //                     queue.push(neighbor);
-  //                 }
-  //             }
-  //         }
-  //     }
-  //     return visited.size === vertices.size;
-  // }
+  public isConnected (): boolean {
+      const vertices: Set<T> = this.getVertices();
+      const visited: Set<T> = new Set<T>();
+      const queue: T[] = [];
+      queue.push(vertices.values().next().value);
+      while(queue.length > 0) {
+          const vertex = queue.shift() as T;
+          if(!visited.has(vertex)) {
+              visited.add(vertex);
+              const neighbors: Set<T> = this.getNeighbors(vertex);
+              for(const neighbor of neighbors) {
+                  if(!visited.has(neighbor)) {
+                      queue.push(neighbor);
+                  }
+              }
+          }
+      }
+      return visited.size === vertices.size;
+  }
 
-  // public isCyclic (): boolean {
-  //     const vertices: Set<T> = this.getVertices();
-  //     const visited: Set<T> = new Set<T>();
-  //     const queue: T[] = [];
-  //     queue.push(vertices.values().next().value);
-  //     while(queue.length > 0) {
-  //         const vertex: T = queue.shift()!;
-  //         if(!visited.has(vertex)) {
-  //             visited.add(vertex);
-  //             const neighbors: Set<T> = this.getNeighbors(vertex);
-  //             for(const neighbor of neighbors) {
-  //                 if(!visited.has(neighbor)) {
-  //                     queue.push(neighbor);
-  //                 }
-  //             }
-  //         }
-  //     }
-  //     return visited.size !== vertices.size;
-  // }
+  public isCyclic (): boolean {
+      const vertices: Set<T> = this.getVertices();
+      const visited: Set<T> = new Set<T>();
+      const queue: T[] = [];
+      queue.push(vertices.values().next().value);
+      while(queue.length > 0) {
+          const vertex = queue.shift() as T;
+          if(!visited.has(vertex)) {
+              visited.add(vertex);
+              const neighbors: Set<T> = this.getNeighbors(vertex);
+              for(const neighbor of neighbors) {
+                  if(!visited.has(neighbor)) {
+                      queue.push(neighbor);
+                  }
+              }
+          }
+      }
+      return visited.size !== vertices.size;
+  }
 
-  // public isTree (): boolean {
-  //     const vertices: Set<T> = this.getVertices();
-  //     const visited: Set<T> = new Set<T>();
-  //     const queue: T[] = [];
-  //     queue.push(vertices.values().next().value);
-  //     while(queue.length > 0) {
-  //         const vertex: T = queue.shift()!;
-  //         if(!visited.has(vertex)) {
-  //             visited.add(vertex);
-  //             const neighbors: Set<T> = this.getNeighbors(vertex);
-  //             for(const neighbor of neighbors) {
-  //                 if(!visited.has(neighbor)) {
-  //                     queue.push(neighbor);
-  //                 }
-  //             }
-  //         }
-  //     }
-  //     return visited.size === vertices.size;
-  // }
+  public isTree (): boolean {
+      const vertices: Set<T> = this.getVertices();
+      const visited: Set<T> = new Set<T>();
+      const queue: T[] = [];
+      queue.push(vertices.values().next().value);
+      while(queue.length > 0) {
+          const vertex = queue.shift() as T;
+          if(!visited.has(vertex)) {
+              visited.add(vertex);
+              const neighbors: Set<T> = this.getNeighbors(vertex);
+              for(const neighbor of neighbors) {
+                  if(!visited.has(neighbor)) {
+                      queue.push(neighbor);
+                  }
+              }
+          }
+      }
+      return visited.size === vertices.size;
+  }
 
-  // public isEulerian (): boolean {
-  //     const vertices: Set<T> = this.getVertices();
-  //     const visited: Set<T> = new Set<T>();
-  //     const queue: T[] = [];
-  //     queue.push(vertices.values().next().value);
-  //     while(queue.length > 0) {
-  //         const vertex: T = queue.shift()!;
-  //         if(!visited.has(vertex)) {
-  //             visited.add(vertex);
-  //             const neighbors: Set<T> = this.getNeighbors(vertex);
-  //             for(const neighbor of neighbors) {
-  //                 if(!visited.has(neighbor)) {
-  //                     queue.push(neighbor);
-  //                 }
-  //             }
-  //         }
-  //     }
-  //     return visited.size === vertices.size;
-  // }
+  public isEulerian (): boolean {
+      const vertices: Set<T> = this.getVertices();
+      const visited: Set<T> = new Set<T>();
+      const queue: T[] = [];
+      queue.push(vertices.values().next().value);
+      while(queue.length > 0) {
+          const vertex = queue.shift() as T;
+          if(!visited.has(vertex)) {
+              visited.add(vertex);
+              const neighbors: Set<T> = this.getNeighbors(vertex);
+              for(const neighbor of neighbors) {
+                  if(!visited.has(neighbor)) {
+                      queue.push(neighbor);
+                  }
+              }
+          }
+      }
+      return visited.size === vertices.size;
+  }
 
-  // public isHamiltonian (): boolean {
-  //     const vertices: Set<T> = this.getVertices();
-  //     const visited: Set<T> = new Set<T>();
-  //     const queue: T[] = [];
-  //     queue.push(vertices.values().next().value);
-  //     while(queue.length > 0) {
-  //         const vertex: T = queue.shift()!;
-  //         if(!visited.has(vertex)) {
-  //             visited.add(vertex);
-  //             const neighbors: Set<T> = this.getNeighbors(vertex);
-  //             for(const neighbor of neighbors) {
-  //                 if(!visited.has(neighbor)) {
-  //                     queue.push(neighbor);
-  //                 }
-  //             }
-  //         }
-  //     }
-  //     return visited.size === vertices.size;
-  // }
+  public isHamiltonian (): boolean {
+      const vertices: Set<T> = this.getVertices();
+      const visited: Set<T> = new Set<T>();
+      const queue: T[] = [];
+      queue.push(vertices.values().next().value);
+      while(queue.length > 0) {
+          const vertex = queue.shift() as T;
+          if(!visited.has(vertex)) {
+              visited.add(vertex);
+              const neighbors: Set<T> = this.getNeighbors(vertex);
+              for(const neighbor of neighbors) {
+                  if(!visited.has(neighbor)) {
+                      queue.push(neighbor);
+                  }
+              }
+          }
+      }
+      return visited.size === vertices.size;
+  }
 
-  // public isRegular (): boolean {
-  //     const vertices: Set<T> = this.getVertices();
-  //     const visited: Set<T> = new Set<T>();
-  //     const queue: T[] = [];
-  //     queue.push(vertices.values().next().value);
-  //     while(queue.length > 0) {
-  //         const vertex: T = queue.shift()!;
-  //         if(!visited.has(vertex)) {
-  //             visited.add(vertex);
-  //             const neighbors: Set<T> = this.getNeighbors(vertex);
-  //             for(const neighbor of neighbors) {
-  //                 if(!visited.has(neighbor)) {
-  //                     queue.push(neighbor);
-  //                 }
-  //             }
-  //         }
-  //     }
-  //     return visited.size === vertices.size;
-  // }
+  public isRegular (): boolean {
+      const vertices: Set<T> = this.getVertices();
+      const visited: Set<T> = new Set<T>();
+      const queue: T[] = [];
+      queue.push(vertices.values().next().value);
+      while(queue.length > 0) {
+          const vertex = queue.shift() as T;
+          if(!visited.has(vertex)) {
+              visited.add(vertex);
+              const neighbors: Set<T> = this.getNeighbors(vertex);
+              for(const neighbor of neighbors) {
+                  if(!visited.has(neighbor)) {
+                      queue.push(neighbor);
+                  }
+              }
+          }
+      }
+      return visited.size === vertices.size;
+  }
 
-  // public isComplete (): boolean {
-  //     const vertices: Set<T> = this.getVertices();
-  //     const visited: Set<T> = new Set<T>();
-  //     const queue: T[] = [];
-  //     queue.push(vertices.values().next().value);
-  //     while(queue.length > 0) {
-  //         const vertex: T = queue.shift()!;
-  //         if(!visited.has(vertex)) {
-  //             visited.add(vertex);
-  //             const neighbors: Set<T> = this.getNeighbors(vertex);
-  //             for(const neighbor of neighbors) {
-  //                 if(!visited.has(neighbor)) {
-  //                     queue.push(neighbor);
-  //                 }
-  //             }
-  //         }
-  //     }
-  //     return visited.size === vertices.size;
-  // }
+  public isComplete (): boolean {
+      const vertices: Set<T> = this.getVertices();
+      const visited: Set<T> = new Set<T>();
+      const queue: T[] = [];
+      queue.push(vertices.values().next().value);
+      while(queue.length > 0) {
+          const vertex = queue.shift() as T;
+          if(!visited.has(vertex)) {
+              visited.add(vertex);
+              const neighbors: Set<T> = this.getNeighbors(vertex);
+              for(const neighbor of neighbors) {
+                  if(!visited.has(neighbor)) {
+                      queue.push(neighbor);
+                  }
+              }
+          }
+      }
+      return visited.size === vertices.size;
+  }
 
-  // public isCompleteBipartite (): boolean {
-  //     const vertices: Set<T> = this.getVertices();
-  //     const visited: Set<T> = new Set<T>();
-  //     const queue: T[] = [];
-  //     queue.push(vertices.values().next().value);
-  //     let color: boolean = false;
-  //     while(queue.length > 0) {
-  //         const vertex: T = queue.shift()!;
-  //         if(!visited.has(vertex)) {
-  //             visited.add(vertex);
-  //             const neighbors: Set<T> = this.getNeighbors(vertex);
-  //             for(const neighbor of neighbors) {
-  //                 if(!visited.has(neighbor)) {
-  //                     queue.push(neighbor);
-  //                     color = !color;
-  //                 }
-  //             }
-  //         }
-  //     }
-  //     return visited.size === vertices.size;
-  // }
+  public isCompleteBipartite (): boolean {
+      const vertices: Set<T> = this.getVertices();
+      const visited: Set<T> = new Set<T>();
+      const queue: T[] = [];
+      queue.push(vertices.values().next().value);
+      let color: boolean = false;
+      while(queue.length > 0) {
+          const vertex = queue.shift() as T;
+          if(!visited.has(vertex)) {
+              visited.add(vertex);
+              const neighbors: Set<T> = this.getNeighbors(vertex);
+              for(const neighbor of neighbors) {
+                  if(!visited.has(neighbor)) {
+                      queue.push(neighbor);
+                      color = !color;
+                  }
+              }
+          }
+      }
+      return visited.size === vertices.size;
+  }
 }
