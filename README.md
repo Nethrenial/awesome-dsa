@@ -3,7 +3,7 @@
 <h2>What is Awesome DSA?</h2>
 
 Awesome DSA provides classic **_Data Structures & Algorithms_** to use in any of your projects.  
-It currently provides,  
+It currently provides,
 
 - Data Structures
 
