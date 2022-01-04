@@ -4,7 +4,7 @@
 
 ## What is Awesome DSA?
 
-Awesome DSA provides classic **_Data Structures and Algorithms_** to use in any of your projects  
+Awesome DSA provides classic **_Data Structures and Algorithms_** to use in any of your projects
 Currently provides,
 
 - Data Structures
@@ -71,5 +71,5 @@ const list = new SinglyLinkedList();
 
 ## Written By
 
-Nethsara Sandeepa Elvitigala  
+Nethsara Sandeepa Elvitigala
 [Twitter](https://twitter.com/NethsaraE) | [linkedin](www.linkedin.com/in/nethsara-elvitigala) | [Github](https://github.com/Nethrenial) | [Facebook](https://facebook.com/nethsara.sandeepa)

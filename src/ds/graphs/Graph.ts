@@ -9,7 +9,7 @@ export class Graph<T = number> {
 
     #_graph: Map<T, Set<T>>;
 
-    constructor() { 
+    constructor() {
         this.#_graph = new Map<T, Set<T>>();
     }
 
@@ -24,7 +24,7 @@ export class Graph<T = number> {
      * graph.hasVertex(2); // false
      * ```
      */
-    public hasVertex (vertex: T): boolean { 
+    public hasVertex (vertex: T): boolean {
         return this.#_graph.has(vertex);
     }
 
@@ -48,11 +48,11 @@ export class Graph<T = number> {
      * ```
      * @see {@link addUndirectedEdge}
      */
-    public addDirectedEdge (from: T, to: T): void { 
+    public addDirectedEdge (from: T, to: T): void {
         if (!this.hasVertex(from)) {
             this.#_graph.set(from, new Set<T>());
         }
-        if (!this.hasVertex(to)) { 
+        if (!this.hasVertex(to)) {
             this.#_graph.set(to, new Set<T>());
         }
         this.#_graph.get(from)?.add(to);
@@ -75,7 +75,7 @@ export class Graph<T = number> {
      * ```
      * @see {@link addDirectedEdge}
      */
-    public addUndirectedEdge (v1: T, v2: T): void { 
+    public addUndirectedEdge (v1: T, v2: T): void {
         this.addDirectedEdge(v1, v2);
         this.addDirectedEdge(v2, v1);
     }
@@ -92,7 +92,7 @@ export class Graph<T = number> {
      * graph.getNeighbors(2); // Set { }
      * ```
      */
-    public addVertex (vertex: T): void { 
+    public addVertex (vertex: T): void {
         if(!this.hasVertex(vertex)) {
             this.#_graph.set(vertex, new Set<T>());
         }
@@ -115,7 +115,7 @@ export class Graph<T = number> {
      * graph.getNeighbors(3); // Set { 2, 1 }
      * ```
      */
-    public getNeighbors (vertex: T): Set<T> { 
+    public getNeighbors (vertex: T): Set<T> {
         if(this.hasVertex(vertex)) {
             return this.#_graph.get(vertex)!;
         }
@@ -134,8 +134,8 @@ export class Graph<T = number> {
      * ```
      * @see {@link getNeighbors}
      * @see {@link addVertex}
-     */ 
-    public getVertices (): Set<T> { 
+     */
+    public getVertices (): Set<T> {
         return new Set<T>(this.#_graph.keys());
     }
 
@@ -154,7 +154,7 @@ export class Graph<T = number> {
      * @see {@link DFS}
      * @see {@link DFT}
      */
-    public BFT (start: T): T[] { 
+    public BFT (start: T): T[] {
         const queue: T[] = [];
         const visited: Set<T> = new Set<T>();
         const path: T[] = [];
@@ -191,7 +191,7 @@ export class Graph<T = number> {
      * @see {@link DFS}
      * @see {@link DFT}
      */
-    public BFS (start: T, finish: T): T[] | false { 
+    public BFS (start: T, finish: T): T[] | false {
         const queue: T[] = [];
         const visited: Set<T> = new Set<T>();
         const path: T[] = [];
@@ -230,7 +230,7 @@ export class Graph<T = number> {
      * @see {@link DFS}
      * @see {@link DFT}
      */
-    public DFT (start: T): T[] { 
+    public DFT (start: T): T[] {
         const stack: T[] = [];
         const visited: Set<T> = new Set<T>();
         const path: T[] = [];
@@ -268,7 +268,7 @@ export class Graph<T = number> {
      * @see {@link DFS}
      * @see {@link DFT}
      */
-    public DFS (start: T, finish: T): T[] | false { 
+    public DFS (start: T, finish: T): T[] | false {
         const stack: T[] = [];
         const visited: Set<T> = new Set<T>();
         const path: T[] = [];
@@ -292,7 +292,7 @@ export class Graph<T = number> {
         return false;
     }
 
-    // public Dijkstra (start: T, finish: T): T[] | false { 
+    // public Dijkstra (start: T, finish: T): T[] | false {
     //     const queue: T[] = [];
     //     const visited: Set<T> = new Set<T>();
     //     const path: T[] = [];
@@ -314,7 +314,7 @@ export class Graph<T = number> {
     //     return false;
     // }
 
-    // public FloydWarshall (): void { 
+    // public FloydWarshall (): void {
     //     const vertices: Set<T> = this.getVertices();
     //     const distances: Map<T, Map<T, number>> = new Map<T, Map<T, number>>();
     //     for(const vertex of vertices) {
@@ -337,7 +337,7 @@ export class Graph<T = number> {
     //     }
     // }
 
-    // public Prim (start: T): T[] { 
+    // public Prim (start: T): T[] {
     //     const queue: T[] = [];
     //     const visited: Set<T> = new Set<T>();
     //     const path: T[] = [];
@@ -356,7 +356,7 @@ export class Graph<T = number> {
     //     return path;
     // }
 
-    // public Kruskal (): void { 
+    // public Kruskal (): void {
     //     const vertices: Set<T> = this.getVertices();
     //     const edges: Set<Edge<T>> = new Set<Edge<T>>();
     //     for(const vertex of vertices) {
@@ -375,7 +375,7 @@ export class Graph<T = number> {
     //     }
     // }
 
-    // public isBipartite (): boolean { 
+    // public isBipartite (): boolean {
     //     const vertices: Set<T> = this.getVertices();
     //     const visited: Set<T> = new Set<T>();
     //     const queue: T[] = [];
@@ -402,7 +402,7 @@ export class Graph<T = number> {
     //     return true;
     // }
 
-    // public isConnected (): boolean { 
+    // public isConnected (): boolean {
     //     const vertices: Set<T> = this.getVertices();
     //     const visited: Set<T> = new Set<T>();
     //     const queue: T[] = [];
@@ -422,7 +422,7 @@ export class Graph<T = number> {
     //     return visited.size === vertices.size;
     // }
 
-    // public isCyclic (): boolean { 
+    // public isCyclic (): boolean {
     //     const vertices: Set<T> = this.getVertices();
     //     const visited: Set<T> = new Set<T>();
     //     const queue: T[] = [];
@@ -442,7 +442,7 @@ export class Graph<T = number> {
     //     return visited.size !== vertices.size;
     // }
 
-    // public isTree (): boolean { 
+    // public isTree (): boolean {
     //     const vertices: Set<T> = this.getVertices();
     //     const visited: Set<T> = new Set<T>();
     //     const queue: T[] = [];
@@ -462,7 +462,7 @@ export class Graph<T = number> {
     //     return visited.size === vertices.size;
     // }
 
-    // public isEulerian (): boolean { 
+    // public isEulerian (): boolean {
     //     const vertices: Set<T> = this.getVertices();
     //     const visited: Set<T> = new Set<T>();
     //     const queue: T[] = [];
@@ -482,27 +482,7 @@ export class Graph<T = number> {
     //     return visited.size === vertices.size;
     // }
 
-    // public isHamiltonian (): boolean { 
-    //     const vertices: Set<T> = this.getVertices();
-    //     const visited: Set<T> = new Set<T>();
-    //     const queue: T[] = [];
-    //     queue.push(vertices.values().next().value);
-    //     while(queue.length > 0) {
-    //         const vertex: T = queue.shift()!;
-    //         if(!visited.has(vertex)) {
-    //             visited.add(vertex);
-    //             const neighbors: Set<T> = this.getNeighbors(vertex);
-    //             for(const neighbor of neighbors) {
-    //                 if(!visited.has(neighbor)) {
-    //                     queue.push(neighbor);
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     return visited.size === vertices.size;
-    // }
-    
-    // public isRegular (): boolean { 
+    // public isHamiltonian (): boolean {
     //     const vertices: Set<T> = this.getVertices();
     //     const visited: Set<T> = new Set<T>();
     //     const queue: T[] = [];
@@ -522,7 +502,7 @@ export class Graph<T = number> {
     //     return visited.size === vertices.size;
     // }
 
-    // public isComplete (): boolean { 
+    // public isRegular (): boolean {
     //     const vertices: Set<T> = this.getVertices();
     //     const visited: Set<T> = new Set<T>();
     //     const queue: T[] = [];
@@ -542,7 +522,27 @@ export class Graph<T = number> {
     //     return visited.size === vertices.size;
     // }
 
-    // public isCompleteBipartite (): boolean { 
+    // public isComplete (): boolean {
+    //     const vertices: Set<T> = this.getVertices();
+    //     const visited: Set<T> = new Set<T>();
+    //     const queue: T[] = [];
+    //     queue.push(vertices.values().next().value);
+    //     while(queue.length > 0) {
+    //         const vertex: T = queue.shift()!;
+    //         if(!visited.has(vertex)) {
+    //             visited.add(vertex);
+    //             const neighbors: Set<T> = this.getNeighbors(vertex);
+    //             for(const neighbor of neighbors) {
+    //                 if(!visited.has(neighbor)) {
+    //                     queue.push(neighbor);
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return visited.size === vertices.size;
+    // }
+
+    // public isCompleteBipartite (): boolean {
     //     const vertices: Set<T> = this.getVertices();
     //     const visited: Set<T> = new Set<T>();
     //     const queue: T[] = [];
