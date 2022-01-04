@@ -1,10 +1,8 @@
-<h1 style="color: teal;text-align:center;font-weight: 100;font-size: 48px">Awesome-DSA</h1>
+<h1 style="color: #ff5566;text-align:center;font-weight: 200;font-size: 48px">Awesome-DSA</h1>
 
-___
+<h2>What is Awesome DSA?</h2>
 
-## What is Awesome DSA?
-
-Awesome DSA provides classic **_Data Structures and Algorithms_** to use in any of your projects  
+Awesome DSA provides classic **_Data Structures & Algorithms_** to use in any of your projects  
 Currently provides,
 
 - Data Structures
@@ -44,7 +42,6 @@ Note: add `--save` if you are using npm < 5.0.0
 
 ## Usage
 
-This library provides classic text book definitions of data structures such as SinglyLinkedList, LinearQueue & a Stack class that is limited to a specified size(this is called LimitedStack).But it also provides much more practical classes such as a Queue, Stack that is unlimited and provides familiar methods(ex - dequeue,enqueue for Queue and  push,pop for Stack).
 
 In nodejs environment:
 
@@ -70,6 +67,10 @@ const list = new SinglyLinkedList()
 `
 Recommended to use {} syntax to leverage tree shaking capabilities of bundling tools.It will reduce you bundle size greatly.
 `
+
+## Bugs & Feature Requests
+
+
 
 ## Written By  
 
