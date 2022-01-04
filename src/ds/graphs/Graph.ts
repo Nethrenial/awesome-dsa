@@ -2,10 +2,8 @@ class Edge<T=number> {
     constructor(public from: T, public to: T, public weight?: number) { }
 }
 
-
-
 /**
- * Graph data structure.
+ * Implementation of a graph with methods for different traversal methods and other useful algorithms.
  */
 export class Graph<T = number> {
 
