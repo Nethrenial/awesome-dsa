@@ -125,7 +125,7 @@ export class Graph<T = number> {
     if (this.#_graph.has(vertex)) {
       return this.#_graph.get(vertex) as Set<T>;
     }
-    throw new Error(`Vertex ${vertex} not found in graph`);
+    throw new Error(`Vertex not found in graph`);
   }
 
   /**
