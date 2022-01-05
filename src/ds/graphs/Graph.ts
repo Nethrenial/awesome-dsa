@@ -243,12 +243,10 @@ export class Graph<T = number> {
     stack.push(start);
     while (stack.length > 0) {
       const vertex = stack.pop() as T;
-      console.log(`Popped ${vertex}`);
       if (!visited.has(vertex)) {
         visited.add(vertex);
         const neighbors: Set<T> = this.getNeighbors(vertex);
         for (const neighbor of neighbors) {
-          console.log(`Pushing ${neighbor}`);
           stack.push(neighbor);
         }
         path.push(vertex);
@@ -281,7 +279,6 @@ export class Graph<T = number> {
     stack.push(start);
     while (stack.length > 0) {
       const vertex = stack.pop() as T;
-      console.log(`Popped ${vertex}`);
       if (vertex === finish) {
         return path;
       }

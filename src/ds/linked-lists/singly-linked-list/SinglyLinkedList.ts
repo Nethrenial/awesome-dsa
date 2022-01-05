@@ -327,7 +327,6 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
     }
 
     if (this._head.next?.value === target) {
-      console.log(this._head.next.value);
       return this.deleteFromStart();
     }
 
@@ -463,7 +462,6 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
   public display(): void {
     let current = this._head;
     while (current !== null) {
-      console.log(current.value);
       current = current.next;
     }
   }
