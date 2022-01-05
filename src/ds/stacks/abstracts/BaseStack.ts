@@ -28,7 +28,6 @@ export class BaseStack<T = number> {
     return this._size;
   }
 
-
   /**
    * Returns true if the stack is empty, false otherwise.
    * @example

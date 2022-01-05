@@ -2,8 +2,8 @@
 
 <h2>What is Awesome DSA?</h2>
 
-Awesome DSA provides classic **_Data Structures & Algorithms_** to use in any of your projects
-Currently provides,
+Awesome DSA provides classic **_Data Structures & Algorithms_** to use in any of your projects.  
+It currently provides,  
 
 - Data Structures
 
@@ -63,11 +63,15 @@ import { SinglyLinkedList } from "awesome-dsa";
 const list = new SinglyLinkedList();
 ```
 
-`Recommended to use {} syntax to leverage tree shaking capabilities of bundling tools.It will reduce you bundle size greatly.`
+**_Recommended to use importing single classes ({} syntax) to leverage tree shaking capabilities of bundling tools.It will reduce your bundle sizes greatly._**
 
 ## Bugs & Feature Requests
 
-## Written By
+If you come across any bugs or have any feature requests, please open an issue or create a pull request.
+[Visit here to open an issue](https://github.com/Nethrenial/awesome-dsa/issues).
 
-Nethsara Sandeepa Elvitigala
+<h2 style="text-align: center;">Written By</h2>
+
+Nethsara Sandeepa Elvitigala  
+Email: <a href="mailto:nethsarasandeepaelvitigala@gmail.com">nethsarasandeepaelvitigala@gmail.com</a>  
 [Twitter](https://twitter.com/NethsaraE) | [linkedin](www.linkedin.com/in/nethsara-elvitigala) | [Github](https://github.com/Nethrenial) | [Facebook](https://facebook.com/nethsara.sandeepa)

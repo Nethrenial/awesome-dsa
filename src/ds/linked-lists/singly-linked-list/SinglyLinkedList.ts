@@ -22,10 +22,6 @@ class SLLNode<T> implements LLNode<T> {
  * @template T
  */
 export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
-  constructor() {
-    super();
-  }
-
   /**
    * Returns a instance of {@link SinglyLinkedList} with the values in the given list
    * @param arr array of values to create the list from
@@ -330,7 +326,6 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
     }
 
     if (this._head.next?.value === target) {
-      console.log(this._head.next.value);
       return this.deleteFromStart();
     }
 
@@ -466,7 +461,6 @@ export class SinglyLinkedList<T> extends LinkedList<T, SLLNode<T>> {
   public display(): void {
     let current = this._head;
     while (current !== null) {
-      console.log(current.value);
       current = current.next;
     }
   }

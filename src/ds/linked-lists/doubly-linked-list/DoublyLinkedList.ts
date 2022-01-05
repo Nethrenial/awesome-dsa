@@ -24,9 +24,6 @@ class DLLNode<T> implements LLNode<T> {
  * @template T
  */
 export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
-  constructor() {
-    super();
-  }
   /**
    * Returns a instance of {@link DoublyLinkedList} with the values in the given list
    * @param arr array of values to create the list from
@@ -435,7 +432,6 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
     }
     if (this._tail.prev?.value === target) {
       const val = this.deleteFromEnd();
-      console.log(val);
       return val;
     }
     let current: DLLNode<T> | null = this._head;
@@ -552,14 +548,12 @@ export class DoublyLinkedList<T> extends LinkedList<T, DLLNode<T>> {
       let current = this._head;
       if (!current) return;
       while (current !== null) {
-        console.log(current.value);
         current = current.next;
       }
     } else if (mode === "r") {
       let current = this._tail;
       if (!current) return;
       do {
-        console.log(current?.value);
         if (current === this._head) break;
         current = current.prev;
       } while (current);
