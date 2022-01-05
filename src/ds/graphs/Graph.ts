@@ -553,7 +553,7 @@ export class Graph<T = number> {
       const visited: Set<T> = new Set<T>();
       const queue: T[] = [];
       queue.push(vertices.values().next().value);
-      let color: boolean = false;
+      let color = false;
       while(queue.length > 0) {
           const vertex = queue.shift() as T;
           if(!visited.has(vertex)) {
