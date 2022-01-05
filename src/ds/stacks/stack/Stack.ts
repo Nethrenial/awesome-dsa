@@ -6,7 +6,6 @@ import { BaseStack } from "../abstracts/BaseStack";
  * @template T
  */
 export class Stack<T> extends BaseStack<T> {
-
   /**
    * Returns a stack from the given array, this stack is unlimited in size
    * @param array Array to convert to a stack.
