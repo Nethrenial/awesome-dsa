@@ -286,7 +286,6 @@ export class Graph<T = number> {
         visited.add(vertex);
         const neighbors: Set<T> = this.getNeighbors(vertex);
         for (const neighbor of neighbors) {
-          console.log(`Pushing ${neighbor}`);
           stack.push(neighbor);
         }
         path.push(vertex);
