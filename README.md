@@ -2,6 +2,8 @@
 
 <h2>What is Awesome DSA?</h2>
 
+**_This is currently under development and lacks full features (more details below)_**
+
 Awesome DSA provides classic **_Data Structures & Algorithms_** to use in any of your projects.  
 It currently provides,  
 
@@ -13,10 +15,10 @@ It currently provides,
 | [DoublyLinkedList](https://nethrenial.github.io/awesome-dsa/classes/DoublyLinkedList.html) | Functionality is the same for the most part (there are two more methods in this class) as `SinglyLinkedList` for the end users but implemented with nodes that has references to both next and previous node. |
 | [Stack](https://nethrenial.github.io/awesome-dsa/classes/Stack.html)                       | A more practical and useful implementation of a stack which grows as needed.                                                                                                                                  |
 | [LimitedStack](https://nethrenial.github.io/awesome-dsa/classes/LimitedStack.html)         | A classic implementation of Stack that is limited to the size it's given at the initialization.                                                                                                               |
-| [Queue](https://nethrenial.github.io/awesome-dsa/classes/Queue.html)                       | A Queue structure that can grow in size as needed.                                                                                                                                                            |
+<!-- | [Queue](https://nethrenial.github.io/awesome-dsa/classes/Queue.html)                       | A Queue structure that can grow in size as needed.                                                                                                                                                            |
 | [LinearQueue](https://nethrenial.github.io/awesome-dsa/classes/LinearQueue.html)           | Implementation of a linear queue, which is limited in size and can't recover space from dequeued items.                                                                                                       |
 | [CircularQueue](https://nethrenial.github.io/awesome-dsa/classes/CircularQueue.html)       | Implementation of a circular queue, which is limited in size but can recover space from dequeued items.                                                                                                       |
-| [Graph](https://nethrenial.github.io/awesome-dsa/classes/Graph.html)                       | Implementation of a graph with methods for different traversal methods and other useful algorithms.                                                                                                           |
+| [Graph](https://nethrenial.github.io/awesome-dsa/classes/Graph.html)                       | Implementation of a graph with methods for different traversal methods and other useful algorithms.                                                                                                           | -->
 
 Awesome DSA is released under the [MIT license](raw.githubusercontent.com/Nethrenial/awesome-dsa/doubly-linked-list/LICENSE).You are free to use the source code in anyway you want.Also contributions are much appreciated as I'm just doing this in my free time for fun 😉.
 
